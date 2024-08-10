@@ -3,93 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Your Name's Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset CSS */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
+            box-sizing: border-box;
         }
 
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-            padding: 20px;
-            max-width: 1200px;
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
         }
 
         header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            padding: 40px 0;
             text-align: center;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5em;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            color: #00f2fe;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 30px auto;
+            overflow: hidden;
         }
 
         section {
-            margin: 20px 0;
-            padding: 20px;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
         }
 
         h2 {
-            text-align: center;
-            margin-bottom: 20px;
+            font-size: 2.2em;
             color: #333;
-            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #4facfe;
+            padding-bottom: 10px;
+            text-align: center;
         }
 
         .resume, .projects, .samples {
-            padding: 10px;
+            padding: 20px;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #00f2fe, #4facfe);
+            color: white;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .cta h2 {
+            margin-bottom: 10px;
+        }
+
+        .cta a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta a:hover {
+            background-color: #222;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
         }
 
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
-            }
-
             header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
-            h2 {
-                font-size: 1.5em;
+            header p {
+                font-size: 1em;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+
+            .cta {
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Your Name's Portfolio</h1>
-        </div>
+        <h1>Your Name's Portfolio</h1>
+        <p>Welcome to my professional portfolio</p>
     </header>
 
+    <nav>
+        <ul>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#samples">eLearning Samples</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <section class="resume">
+        <section id="resume">
             <h2>Resume</h2>
-            <p>Insert your resume or a link to your resume here.</p>
+            <p>Insert your resume or a link to your resume here. Make sure it's easily accessible and clear.</p>
         </section>
 
-        <section class="projects">
+        <section id="projects">
             <h2>Projects</h2>
-            <p>Provide a summary of your projects here.</p>
+            <p>Provide a summary of your projects here. Use bullet points or brief paragraphs to describe each project.</p>
         </section>
 
-        <section class="samples">
+        <section id="samples">
             <h2>eLearning Samples</h2>
-            <p>Include samples of your eLearning designs here.</p>
+            <p>Include samples of your eLearning designs here. Use images, links, or embedded content to showcase your work.</p>
+        </section>
+
+        <section class="cta">
+            <h2>Interested in Working Together?</h2>
+            <p>If you're interested in collaborating or have any questions, feel free to reach out!</p>
+            <a href="mailto:your-email@example.com">Contact Me</a>
         </section>
     </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
