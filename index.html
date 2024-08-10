@@ -23,7 +23,7 @@
             position: relative;
             width: 100%;
             height: 300px;
-            background: url('your-image.jpg') center/cover no-repeat;
+            background: url('header-image.jpg') center/cover no-repeat;
         }
 
         .header::after {
@@ -56,10 +56,25 @@
         .sidebar {
             flex: 1;
             max-width: 250px;
-            background-color: #333;
+            background-color: #4facfe;
             color: white;
             padding: 20px;
             border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .sidebar .bio {
+            margin-bottom: 20px;
+        }
+
+        .sidebar .bio h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .bio p {
+            font-size: 1em;
+            line-height: 1.6;
         }
 
         .sidebar nav {
@@ -82,35 +97,44 @@
             display: block;
             padding: 10px;
             border-radius: 4px;
+            background-color: #6dbd73;
             transition: background-color 0.3s ease;
         }
 
         .sidebar nav ul li a:hover {
-            background-color: #444;
-        }
-
-        .sidebar .bio {
-            margin-top: 20px;
-        }
-
-        .sidebar .bio h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-
-        .sidebar .bio p {
-            font-size: 1em;
-            line-height: 1.6;
+            background-color: #88cc88;
         }
 
         /* Main Content */
         .main-content {
             flex: 3;
-            margin-left: 20px;
             background: white;
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content .quick-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .main-content .quick-links a {
+            display: block;
+            width: 48%;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            background-color: #f4b400;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-content .quick-links a:hover {
+            background-color: #ffd966;
         }
 
         .main-content section {
@@ -122,6 +146,19 @@
             margin-bottom: 20px;
             border-bottom: 2px solid #4facfe;
             padding-bottom: 10px;
+        }
+
+        .placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #888;
+            font-size: 1.2em;
+            border: 2px dashed #ccc;
+            margin-bottom: 20px;
         }
 
         /* Footer */
@@ -144,12 +181,18 @@
             }
 
             .sidebar {
+                margin-right: 0;
                 margin-bottom: 20px;
                 max-width: 100%;
             }
 
-            .main-content {
-                margin-left: 0;
+            .main-content .quick-links a {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .main-content .quick-links a:last-child {
+                margin-bottom: 0;
             }
 
             .header h1 {
@@ -166,34 +209,62 @@
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="#resume">Resume</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#samples">eLearning Samples</a></li>
-                </ul>
-            </nav>
             <div class="bio">
                 <h2>About Me</h2>
                 <p>Write a brief bio about yourself here. Highlight your key skills, experiences, and what makes you unique.</p>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="resume.pdf" target="_blank">Resume (PDF)</a></li>
+                    <li><a href="#elearning">eLearning Samples</a></li>
+                    <li><a href="#projects">Work Project Summary</a></li>
+                </ul>
+            </nav>
         </aside>
 
         <!-- Main Content -->
         <div class="main-content">
-            <section id="resume">
-                <h2>Resume</h2>
-                <p>Insert your resume or a link to your resume here. Make sure it's easily accessible and clear.</p>
+            <div class="quick-links">
+                <a href="#elearning">View eLearning Samples</a>
+                <a href="#projects">View Work Project Summary</a>
+            </div>
+
+            <section id="elearning">
+                <h2>eLearning Samples</h2>
+                <div class="placeholder">[eLearning Object Placeholder 1]</div>
+                <div class="placeholder">[eLearning Object Placeholder 2]</div>
+                <div class="placeholder">[eLearning Object Placeholder 3]</div>
             </section>
 
             <section id="projects">
-                <h2>Projects</h2>
-                <p>Provide a summary of your projects here. Use bullet points or brief paragraphs to describe each project.</p>
-            </section>
-
-            <section id="samples">
-                <h2>eLearning Samples</h2>
-                <p>Include samples of your eLearning designs here. Use images, links, or embedded content to showcase your work.</p>
+                <h2>Work Project Summary</h2>
+                <article class="project">
+                    <h3>Project 1: Project Title</h3>
+                    <p><strong>Objective:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Challenge:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Approach:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Audience:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Tools & Technologies:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Solution:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Impact:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Role:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Timeline:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Stakeholders:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </article>
+                <article class="project">
+                    <h3>Project 2: Project Title</h3>
+                    <p><strong>Objective:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Challenge:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Approach:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Audience:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Tools & Technologies:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Solution:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Impact:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Role:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Timeline:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p><strong>Stakeholders:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </article>
+                <!-- Add more project summaries as needed, up to 7 projects -->
             </section>
         </div>
     </div>
