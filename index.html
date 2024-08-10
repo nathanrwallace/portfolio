@@ -16,6 +16,7 @@
             font-family: 'Helvetica Neue', Arial, sans-serif;
             background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
         }
 
         /* Header with Image */
@@ -50,35 +51,34 @@
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
+            padding-bottom: 20px;
         }
 
         /* Sidebar */
         .sidebar {
             flex: 1;
             max-width: 250px;
-            background-color: #4facfe;
-            color: white;
+            background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
             margin-right: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .sidebar .bio {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .sidebar .bio h2 {
             font-size: 1.8em;
             margin-bottom: 10px;
+            color: #333;
+            border-bottom: 3px solid #4facfe;
+            padding-bottom: 5px;
         }
 
         .sidebar .bio p {
             font-size: 1em;
-            line-height: 1.6;
-        }
-
-        .sidebar nav {
-            margin-bottom: 20px;
+            color: #555;
         }
 
         .sidebar nav ul {
@@ -90,19 +90,19 @@
         }
 
         .sidebar nav ul li a {
-            color: white;
+            color: #4facfe;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
-            display: block;
             padding: 10px;
-            border-radius: 4px;
-            background-color: #6dbd73;
-            transition: background-color 0.3s ease;
+            display: block;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
         }
 
         .sidebar nav ul li a:hover {
-            background-color: #88cc88;
+            border-left: 3px solid #4facfe;
+            color: #00aaff;
         }
 
         /* Main Content */
@@ -110,7 +110,6 @@
             flex: 3;
             background: white;
             padding: 30px;
-            border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -128,13 +127,12 @@
             text-decoration: none;
             color: white;
             font-weight: bold;
-            border-radius: 8px;
-            background-color: #f4b400;
+            background-color: #6dbd73;
             transition: background-color 0.3s ease;
         }
 
         .main-content .quick-links a:hover {
-            background-color: #ffd966;
+            background-color: #88cc88;
         }
 
         .main-content section {
@@ -146,6 +144,7 @@
             margin-bottom: 20px;
             border-bottom: 2px solid #4facfe;
             padding-bottom: 10px;
+            color: #333;
         }
 
         .placeholder {
@@ -165,10 +164,8 @@
         footer {
             text-align: center;
             padding: 20px;
-            margin-top: 20px;
             background-color: #333;
             color: white;
-            border-radius: 8px;
         }
 
         footer p {
