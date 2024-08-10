@@ -14,117 +14,124 @@
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
             color: #333;
-            line-height: 1.6;
-            background-color: #f9f9f9;
         }
 
-        header {
-            background: linear-gradient(to right, #4facfe, #00f2fe);
+        /* Header with Image */
+        .header {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: url('your-image.jpg') center/cover no-repeat;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .header h1 {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
             color: white;
-            padding: 40px 0;
-            text-align: center;
+            font-size: 2.5em;
         }
 
-        header h1 {
-            font-size: 3em;
+        /* Layout */
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+            max-width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .sidebar nav {
+            margin-bottom: 20px;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+        }
+
+        .sidebar nav ul li {
             margin-bottom: 10px;
         }
 
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        nav {
-            background-color: #333;
-            padding: 10px 0;
-        }
-
-        nav ul {
-            list-style: none;
-            text-align: center;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
+        .sidebar nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
-        }
-
-        nav ul li a:hover {
-            color: #00f2fe;
-        }
-
-        .container {
-            width: 85%;
-            max-width: 1200px;
-            margin: 30px auto;
-            overflow: hidden;
-        }
-
-        section {
-            margin: 30px 0;
-            padding: 30px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            font-size: 2.2em;
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #4facfe;
-            padding-bottom: 10px;
-            text-align: center;
-        }
-
-        .resume, .projects, .samples {
-            padding: 20px;
-        }
-
-        .cta {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(to right, #00f2fe, #4facfe);
-            color: white;
-            border-radius: 8px;
-            margin-top: 30px;
-        }
-
-        .cta h2 {
-            margin-bottom: 10px;
-        }
-
-        .cta a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            background-color: #333;
-            padding: 10px 20px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 10px;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
             transition: background-color 0.3s ease;
         }
 
-        .cta a:hover {
-            background-color: #222;
+        .sidebar nav ul li a:hover {
+            background-color: #444;
         }
 
+        .sidebar .bio {
+            margin-top: 20px;
+        }
+
+        .sidebar .bio h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .sidebar .bio p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 3;
+            margin-left: 20px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content section {
+            margin-bottom: 30px;
+        }
+
+        .main-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4facfe;
+            padding-bottom: 10px;
+        }
+
+        /* Footer */
         footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
             background-color: #333;
             color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            border-radius: 8px;
         }
 
         footer p {
@@ -132,65 +139,63 @@
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em;
+            .container {
+                flex-direction: column;
             }
 
-            header p {
-                font-size: 1em;
+            .sidebar {
+                margin-bottom: 20px;
+                max-width: 100%;
             }
 
-            nav ul li {
-                display: block;
-                margin: 10px 0;
+            .main-content {
+                margin-left: 0;
             }
 
-            section {
-                padding: 20px;
-                margin: 20px 0;
-            }
-
-            .cta {
-                padding: 15px;
+            .header h1 {
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="header">
         <h1>Your Name's Portfolio</h1>
-        <p>Welcome to my professional portfolio</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#samples">eLearning Samples</a></li>
-        </ul>
-    </nav>
+    </div>
 
     <div class="container">
-        <section id="resume">
-            <h2>Resume</h2>
-            <p>Insert your resume or a link to your resume here. Make sure it's easily accessible and clear.</p>
-        </section>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#samples">eLearning Samples</a></li>
+                </ul>
+            </nav>
+            <div class="bio">
+                <h2>About Me</h2>
+                <p>Write a brief bio about yourself here. Highlight your key skills, experiences, and what makes you unique.</p>
+            </div>
+        </aside>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <p>Provide a summary of your projects here. Use bullet points or brief paragraphs to describe each project.</p>
-        </section>
+        <!-- Main Content -->
+        <div class="main-content">
+            <section id="resume">
+                <h2>Resume</h2>
+                <p>Insert your resume or a link to your resume here. Make sure it's easily accessible and clear.</p>
+            </section>
 
-        <section id="samples">
-            <h2>eLearning Samples</h2>
-            <p>Include samples of your eLearning designs here. Use images, links, or embedded content to showcase your work.</p>
-        </section>
+            <section id="projects">
+                <h2>Projects</h2>
+                <p>Provide a summary of your projects here. Use bullet points or brief paragraphs to describe each project.</p>
+            </section>
 
-        <section class="cta">
-            <h2>Interested in Working Together?</h2>
-            <p>If you're interested in collaborating or have any questions, feel free to reach out!</p>
-            <a href="mailto:your-email@example.com">Contact Me</a>
-        </section>
+            <section id="samples">
+                <h2>eLearning Samples</h2>
+                <p>Include samples of your eLearning designs here. Use images, links, or embedded content to showcase your work.</p>
+            </section>
+        </div>
     </div>
 
     <footer>
