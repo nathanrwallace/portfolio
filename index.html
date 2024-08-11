@@ -141,16 +141,11 @@
             color: #333;
         }
 
-        .placeholder {
+        .scorm-container {
             width: 100%;
-            height: 200px;
-            background-color: #e2e2e2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #888;
-            font-size: 1.2em;
-            margin-bottom: 20px;
+            height: 500px; /* Adjust height as necessary */
+            border: 1px solid #ccc;
+            margin-bottom: 30px;
         }
 
         /* Footer */
@@ -222,9 +217,10 @@
 
             <section id="elearning">
                 <h2>eLearning Samples</h2>
-                <div class="placeholder">[eLearning Object Placeholder 1]</div>
-                <div class="placeholder">[eLearning Object Placeholder 2]</div>
-                <div class="placeholder">[eLearning Object Placeholder 3]</div>
+                <!-- Embed the SCORM content using an iframe -->
+                <div class="scorm-container">
+                    <iframe src="https://nathanrwallace.github.io/WHMIS/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                </div>
             </section>
 
             <section id="projects">
@@ -242,20 +238,7 @@
                     <p><strong>Timeline:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     <p><strong>Stakeholders:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </article>
-                <article class="project">
-                    <h3>Project 2: Project Title</h3>
-                    <p><strong>Objective:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Challenge:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Approach:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Audience:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Tools & Technologies:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Solution:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Impact:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Role:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Timeline:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    <p><strong>Stakeholders:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </article>
-                <!-- Add more project summaries as needed, up to 7 projects -->
+                <!-- Add more project summaries as needed -->
             </section>
         </div>
     </div>
