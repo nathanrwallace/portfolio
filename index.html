@@ -176,6 +176,18 @@
             margin-right: 10px;
         }
 
+        /* Custom arrow for expandable sections */
+        details summary::before {
+            content: '\25B6'; /* Unicode character for the right-pointing arrow */
+            font-size: 1.2em;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate the arrow when the details are open */
+        details[open] summary::before {
+            transform: rotate(90deg);
+
         details p {
             margin-left: 35px; /* Indent content to align with the larger icon */
             line-height: 1.5em;
