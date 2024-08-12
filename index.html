@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name's Portfolio</title>
     <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         /* General Body Styles */
         body {
             font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
@@ -27,11 +20,12 @@
             background-color: #2C3E50; /* Deep Navy background for header */
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
             position: fixed;
             top: 0;
             left: 0;
             z-index: 1000;
+            transition: background-color 0.3s ease; /* Smooth transition for any color changes */
         }
 
         .header h1 {
@@ -48,10 +42,7 @@
             font-weight: 300;
         }
 
-        .nav {
-            margin-top: 10px;
-        }
-
+        /* Navigation Styles */
         .nav ul {
             list-style: none;
             padding: 0;
@@ -68,11 +59,14 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1em;
-            transition: color 0.3s;
+            transition: color 0.3s, border-bottom 0.3s ease; /* Smooth transition for color and border */
+            position: relative;
         }
 
-        .nav ul li a:hover {
+        .nav ul li a:hover,
+        .nav ul li a:focus {
             color: #E67E22; /* Soft Orange on hover */
+            border-bottom: 2px solid #E67E22; /* Underline to indicate focus/hover */
         }
 
         /* Main Content Layout */
@@ -92,7 +86,8 @@
             padding: 20px; /* Ensuring there is enough padding inside the sidebar */
             border-radius: 10px;
             color: #ECF0F1; /* Warm Gray text */
-            overflow: auto; /* Ensures content doesn't get cut off */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow to add depth */
+            transition: transform 0.3s ease; /* Smooth transition when sidebar elements are hovered */
         }
 
         .sidebar .bio h2 {
@@ -118,11 +113,12 @@
             font-size: 1.1em;
             padding: 10px 0;
             display: block;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease; /* Hover and transform transition */
         }
 
         .sidebar nav ul li a:hover {
             color: #E67E22; /* Soft Orange hover effect */
+            transform: scale(1.05); /* Slight zoom effect for interaction */
         }
 
         /* Main Content */
@@ -130,7 +126,12 @@
             background: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: box-shadow 0.3s ease; /* Smooth transition for any shadow changes */
+        }
+
+        .main-content:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Increase shadow on hover for emphasis */
         }
 
         .main-content h2 {
@@ -157,12 +158,20 @@
             color: white;
             margin-top: 20px;
             border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for footer hover */
+        }
+
+        footer:hover {
+            background-color: #1B2838; /* Slightly darker navy on hover for emphasis */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Increase shadow on hover for emphasis */
         }
 
         footer p {
             margin: 0;
         }
 
+        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
@@ -171,6 +180,14 @@
 
             .header h1 {
                 font-size: 2em;
+            }
+
+            .nav ul {
+                flex-direction: column;
+            }
+
+            .nav ul li {
+                margin: 10px 0;
             }
         }
     </style>
