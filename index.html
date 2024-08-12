@@ -3,199 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name's Portfolio</title>
+    <title>Nathan Wallace - Portfolio</title>
     <style>
-        /* General Body Styles */
-        body {
-            font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
-            background-color: #E5E8E8; /* Soft Gray background */
-            color: #333;
-            line-height: 1.7;
-            padding-top: 60px; /* Space for sticky header */
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Header and Navigation */
+        /* General Body Styles */
+        body {
+            font-family: 'Arial', 'Helvetica Neue', 'Segoe UI', sans-serif;
+            background-color: #ECF0F1; /* Warm Gray for background */
+            color: #333;
+            line-height: 1.6;
+        }
+
         .header {
             width: 100%;
+            height: 300px;
             background-color: #2C3E50; /* Deep Navy background for header */
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            transition: background-color 0.3s ease; /* Smooth transition for any color changes */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
 
         .header h1 {
             color: #ECF0F1; /* Warm Gray text color for the header title */
-            font-size: 2.5em;
+            font-size: 3em;
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
             margin: 0;
-            font-family: 'Merriweather', serif;
         }
 
         .header h2 {
             color: #ECF0F1; /* Warm Gray for subheader */
-            font-size: 1.2em;
-            margin-top: 5px;
-            font-weight: 300;
+            font-size: 1.5em; /* Slightly smaller than the main header */
+            margin-top: 10px; /* Adds some spacing between the main header and subheader */
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Subtle text shadow for depth */
         }
 
-        /* Navigation Styles */
-        .nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav ul li {
-            margin: 0 15px;
-        }
-
-        .nav ul li a {
-            color: #E5E8E8;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            transition: color 0.3s, border-bottom 0.3s ease; /* Smooth transition for color and border */
-            position: relative;
-        }
-
-        .nav ul li a:hover,
-        .nav ul li a:focus {
-            color: #E67E22; /* Soft Orange on hover */
-            border-bottom: 2px solid #E67E22; /* Underline to indicate focus/hover */
-        }
-
-        /* Main Content Layout */
+        /* Layout */
         .container {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 30px;
-            padding: 20px;
+            display: flex;
+            margin: 20px auto;
+            width: 90%;
             max-width: 1200px;
-            margin: auto;
-            margin-top: 80px; /* Adding top margin to avoid content being hidden under the sticky header */
         }
 
         /* Sidebar */
         .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
             background-color: #2C3E50; /* Deep Navy for sidebar */
-            padding: 20px; /* Ensuring there is enough padding inside the sidebar */
-            border-radius: 10px;
-            color: #ECF0F1; /* Warm Gray text */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow to add depth */
-            transition: transform 0.3s ease; /* Smooth transition when sidebar elements are hovered */
+            padding: 20px;
+            overflow-y: auto;
+            box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
         .sidebar .bio h2 {
-            font-size: 1.6em;
+            font-size: 1.8em;
             margin-bottom: 10px;
-            color: #ECF0F1;
-            border-bottom: 2px solid #3498DB; /* Muted Sky Blue underline */
+            color: #ECF0F1; /* Warm Gray for headers in sidebar */
+            border-bottom: 3px solid #3498DB; /* Sky Blue underline */
             padding-bottom: 5px;
-            font-family: 'Merriweather', serif;
-        }
-
-        .sidebar .bio p {
-            margin: 0; /* Resetting any default margin */
-            padding: 0; /* Ensuring no padding around the text */
-            line-height: 1.5; /* Adding some line height for readability */
-            text-align: justify; /* Aligning text for a clean look */
         }
 
         .sidebar nav ul li a {
-            color: #3498DB; /* Muted Sky Blue for sidebar links */
+            color: #3498DB; /* Sky Blue for sidebar links */
             text-decoration: none;
-            font-weight: 500;
+            font-weight: bold;
             font-size: 1.1em;
             padding: 10px 0;
             display: block;
-            transition: color 0.3s ease, transform 0.3s ease; /* Hover and transform transition */
+            transition: color 0.3s ease;
         }
 
         .sidebar nav ul li a:hover {
             color: #E67E22; /* Soft Orange hover effect */
-            transform: scale(1.05); /* Slight zoom effect for interaction */
         }
 
         /* Main Content */
         .main-content {
-            background: white;
+            margin-left: 270px;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            transition: box-shadow 0.3s ease; /* Smooth transition for any shadow changes */
-        }
-
-        .main-content:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Increase shadow on hover for emphasis */
+            background: white;
+            flex: 1;
+            min-height: calc(100vh - 360px); /* Header height + padding */
         }
 
         .main-content h2 {
             font-size: 2em;
             margin-bottom: 20px;
-            border-bottom: 2px solid #3498DB; /* Muted Sky Blue underline */
+            border-bottom: 2px solid #3498DB; /* Sky Blue underline */
             padding-bottom: 10px;
             color: #2C3E50; /* Deep Navy for main headers */
-            font-family: 'Merriweather', serif;
         }
 
-        /* eLearning Section */
-        .elearning-section {
-            display: flex;
-            flex-direction: column;
-            gap: 40px; /* Space between different eLearning samples */
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .elearning-item {
-            display: flex;
-            flex-direction: column;
-            background-color: #f8f9fa; /* Light background for contrast */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add some depth with a shadow */
-            transition: background-color 0.3s ease;
-        }
-
-        .elearning-item:hover {
-            background-color: #e9ecef; /* Slightly darker background on hover */
-        }
-
-        .summary {
-            margin-bottom: 20px; /* Space between the summary and the iframe */
-        }
-
-        .summary h3 {
-            font-size: 1.5em;
-            color: #2C3E50; /* Deep Navy */
-        }
-
-        .summary p {
-            color: #666;
-            font-size: 1em;
-        }
-
-        .iframe-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .iframe-container iframe {
+        .scorm-container {
             width: 100%;
-            height: 400px; /* Adjust height as necessary */
-            opacity: 0.5; /* Start with the iframe semi-transparent */
-            transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+            height: 500px; /* Adjust height as necessary */
+            border: 1px solid #ECF0F1; /* Warm Gray border */
+            margin-bottom: 30px;
         }
 
-        .iframe-container iframe:hover {
-            opacity: 1; /* Fully opaque on hover */
-            transform: scale(1.02); /* Slight zoom effect on hover */
+        /* Project Section Styling */
+        .project h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #2C3E50; /* Deep Navy for project headers */
+        }
+
+        /* Quick Links Styling */
+        .main-content .quick-links {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .main-content .quick-links a {
+            display: block;
+            width: 48%;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white; /* Text color should be white for contrast */
+            font-weight: bold;
+            background-color: #3498DB; /* Sky Blue background for quick links */
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .main-content .quick-links a:hover {
+            background-color: #2C3E50; /* Deep Navy on hover for a smooth transition */
+            transform: translateY(-3px); /* Slight lift on hover for an interactive feel */
+        }
+
+        details {
+            margin-bottom: 10px;
+        }
+
+        details summary {
+            font-size: 1.4em; /* Increased font size for headers */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        details summary img {
+            width: 24px; /* Adjusted size for icons */
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        /* Custom plus sign for expandable sections */
+        details summary::before {
+            content: '\002B'; /* Unicode character for the plus sign */
+            font-size: 1.2em;
+            margin-right: 10px;
+            color: #3498DB; /* Sky Blue plus sign */
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        /* Change the plus sign to a minus sign when the section is expanded */
+        details[open] summary::before {
+            content: '\2212'; /* Unicode character for the minus sign */
+        }
+
+        details p {
+            margin-left: 35px; /* Indent content to align with the larger icon */
+            line-height: 1.5em;
+        }
+
+        ul {
+            margin-left: 35px; /* Align bullet points with the content */
+        }
+
+        /* Numbered List Styling */
+        ol li {
+            margin-bottom: 15px; /* Adds space between list items */
+            line-height: 1.6; /* Adjusts the line height for readability */
         }
 
         /* Footer */
@@ -205,102 +199,167 @@
             background-color: #2C3E50; /* Deep Navy for footer */
             color: white;
             margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for footer hover */
-        }
-
-        footer:hover {
-            background-color: #1B2838; /* Slightly darker navy on hover for emphasis */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Increase shadow on hover for emphasis */
         }
 
         footer p {
             margin: 0;
         }
 
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
             .container {
-                grid-template-columns: 1fr;
-                padding: 10px;
+                flex-direction: column;
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                box-shadow: none;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+                width: 100%;
             }
 
             .header h1 {
-                font-size: 2em;
-            }
-
-            .nav ul {
-                flex-direction: column;
-            }
-
-            .nav ul li {
-                margin: 10px 0;
+                font-size: 2.5em;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>Your Name's Portfolio</h1>
+    <div class="header">
+        <h1>Nathan Wallace</h1><br>
         <h2>Senior Learning & Development Strategist</h2>
-        <nav class="nav">
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#elearning">eLearning Samples</a></li>
-                <li><a href="#projects">Work Projects</a></li>
-                <li><a href="resume.pdf" target="_blank">Resume</a></li>
-            </ul>
-        </nav>
-    </header>
+    </div>
 
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="bio">
                 <h2>About Me</h2>
-                <p>Write a brief bio about yourself here. Highlight your key skills, experiences, and what makes you unique.</p>
+                <p>As the Senior Learning & Development Strategist for a leading Canadian energy company, I drive innovative learning solutions across an international, multi-billion-dollar organization. My role spans instructional design, needs assessment, and strategic advice, supporting over 8,000 employees. I collaborate with executives, program managers, and subject matter experts to tackle complex learning challenges, ensuring effective content delivery and technological integration. With a background in leadership at Starbucks, where I managed special projects and trained new managers, I bring a results-oriented approach to creating impactful learning experiences. I am the go-to person for solving novel and ambiguous learning challenges across our corporate group and its diverse business units.</p>
             </div>
+            <nav>
+                <ul>
+                    <li><a href="resume.pdf" target="_blank">Resume (PDF)</a></li>
+                    <li><a href="#elearning">eLearning Samples</a></li>
+                    <li><a href="#projects">Work Project Summary</a></li>
+                </ul>
+            </nav>
         </aside>
 
         <!-- Main Content -->
         <div class="main-content">
-            <h2 id="about">About Me</h2>
-            <p>Your detailed bio goes here. You can include several paragraphs, and the layout will adjust accordingly.</p>
-
-            <h2 id="elearning">eLearning Samples</h2>
-            <div class="elearning-section">
-                <div class="elearning-item">
-                    <div class="summary">
-                        <h3>eLearning Sample 1</h3>
-                        <p>This course covers the essentials of workplace safety. Click on the eLearning below to get started.</p>
-                    </div>
-                    <div class="iframe-container">
-                        <iframe src="https://nathanrwallace.github.io/WHMIS/" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <div class="elearning-item">
-                    <div class="summary">
-                        <h3>eLearning Sample 2</h3>
-                        <p>Explore advanced data management techniques. Click on the eLearning below to get started.</p>
-                    </div>
-                    <div class="iframe-container">
-                        <iframe src="https://example.com/elearning-course2" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
+            <div class="quick-links">
+                <a href="#elearning">View eLearning Samples</a>
+                <a href="#projects">View Work Project Summary</a>
             </div>
 
-            <h2 id="projects">Work Project Summary</h2>
-            <article class="project">
-                <h3>Project: Data Governance Training and Recognition Program</h3>
-                <p>Details of the project...</p>
-            </article>
+            <section id="elearning">
+                <h2>eLearning Samples</h2>
+                <!-- Embed the SCORM content using an iframe -->
+                <div class="scorm-container">
+                    <iframe src="https://nathanrwallace.github.io/WHMIS/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="scorm-container">
+                    <iframe src="https://nathanrwallace.github.io/Decision-Making-in-Leadership/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="scorm-container">
+                    <iframe src="https://nathanrwallace.github.io/Data-Governance-Principles/" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+                </div>
+                
+            </section>
+
+            <section id="projects">
+                <h2>Featured Project Summary</h2>
+                <article class="project">
+                    <h3>Project: Data Governance Training and Recognition Program</h3>
+                    
+                    <details open>
+                        <summary><strong>Objective</strong> &#128202;</summary>
+                        <p>To educate HR employees on data governance principles, aligning them with changes in IT policies, data requests, permissions, and service requests, and to promote continuous engagement through a recognition program.</p>
+                    </details>
+                    
+                    <details>
+                        <summary><strong>Challenge</strong> &#128679;</summary>
+                        <p>HR employees needed a better understanding of data governance due to the sensitivity and volume of data they handled. Additionally, there was a need to engage employees continuously with data governance practices and recognize adherence to these practices.</p>
+                    </details>
+                    
+                    <details>
+                        <summary><strong>Approach</strong> &#128187;</summary>
+                        <p><strong>eLearning Module:</strong> Developed an interactive course on data governance principles using scenarios, examples, and interactive hotspots.<br>
+                        <strong>Real-World Application:</strong> Incorporated a Subway lunch order activity to apply data governance concepts in a real-world context.<br>
+                        <strong>Recognition Program:</strong> Created an ongoing recognition program to reinforce positive behaviors and adherence to data governance practices.</p>
+                    </details>
+                    
+                    <details>
+                        <summary><strong>Audience</strong> &#128101;</summary>
+                        <p>Several hundred corporate HR employees who handle sensitive data regularly.</p>
+                    </details>
+                    
+                    <details>
+                        <summary><strong>Tools & Technologies</strong> &#128295;</summary>
+                        <ul>
+                            <li><strong>Storyline 360:</strong> For developing the eLearning course.</li>
+                            <li><strong>Microsoft Forms & Power Automate:</strong> For building and automating the recognition program.</li>
+                            <li><strong>Adobe Illustrator:</strong> For designing recognition badges.</li>
+                            <li><strong>Power BI:</strong> For creating a dashboard to display recognition data.</li>
+                            <li><strong>Excel:</strong> For data organization and analysis.</li>
+                            <li><strong>Microsoft Tools:</strong> (Teams, Outlook, Word) For collaboration and communication with stakeholders, reviewers, and recognition program testers.</li>
+                        </ul>
+                    </details>
+                    
+                    <details>
+                        <summary><strong>Solution</strong> &#128220;</summary>
+                        <ol>
+                            <p>The project consisted of three main components:
+                            <li><strong>eLearning Course:</strong> A course that covered the importance of data governance, key principles, and practical scenarios illustrating the impact of good and bad data management practices.
+                            <li><strong>Interactive Learning Experiences:</strong> Real-life scenarios and interactive activities, such as the Subway lunch order, to make the learning more relatable and memorable.
+                            <li><strong>Recognition Program:</strong> An automated, scalable recognition program that allowed HR employees to recognize peers for good data governance practices, with badges, emails, and a public dashboard.</p>
+                        </ol>
+                        </details>
+                    
+                    <details>
+                        <summary><strong>Impact</strong> &#127919;</summary>
+                        <p><strong>Employee Engagement:</strong> Thousands of recognitions have been provided through the recognition program. Each monthly HR meeting includes time to discuss recognition and celebrate winners of a random draw who receive gift cards. HR managers and HRBPs have observed a significant shift in how employees engage with data governance, transforming it from a complex topic into one that employees are excited to discuss and address. Employees are now more proactive in reaching out to IT with appropriate questions and solutions to bridge the gap between HRIS and HR practices.
+                        <li><strong>Improvements in Data Governance:</strong> The implementation of the data governance training and recognition program has led to a <strong>50% reduction in time spent</strong> double-checking, cleaning, and correcting data. Additionally, a cultural shift has occurred where the focus has moved from merely correcting data errors to proactively correcting the processes that cause these errors. This has resulted in more efficient data management and greater transparency between HR and IT processes.
+                        <li><strong>Cost Savings:</strong> The custom-built recognition program saved <strong>$30k</strong> over the alternatively considered option and was implemented using in-house tools, resulting in essentially no additional costs.</p>
+                    </details>
+                    
+                    <details>
+                        <summary><strong>Role</strong> &#128736;</summary>
+                        <p>• Conducted the needs assessment and advised on the best delivery options.<br>
+                        • Designed and developed the recognition program, including automating the process, creating badges, and building a dashboard.<br>
+                        • Created the interactive eLearning course, including the real-world application activity.</p>
+                    </details>
+                    
+                    <details>
+                        <summary><strong>Timeline</strong> &#128197;</summary>
+                        <p><strong>Week 1-2:</strong> Scripted and storyboarded the eLearning course.<br>
+                        <strong>Week 3-4:</strong> Stakeholders reviewed and edited the script.<br>
+                        <strong>Week 5-6:</strong> Completed the development of the eLearning course, including all reviews.<br>
+                        <strong>Month 2:</strong> Advised against purchasing a $30k recognition program, researched alternative solutions using existing Microsoft 360 tools.<br>
+                        <strong>Month 3:</strong> Developed and implemented the custom recognition program.</p>
+                    </details>
+                    
+                    <details>
+                        <summary><strong>Stakeholders</strong> &#128101;</summary>
+                        <p>• HR Manager<br>
+                        • HR Program Manager</p>
+                    </details>
+                </article>
+                <!-- Add more project summaries as needed -->
+            </section>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+        <p>&copy; 2024 Nathan Wallace. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
