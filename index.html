@@ -83,14 +83,16 @@
             padding: 20px;
             max-width: 1200px;
             margin: auto;
+            margin-top: 80px; /* Adding top margin to avoid content being hidden under the sticky header */
         }
 
         /* Sidebar */
         .sidebar {
             background-color: #2C3E50; /* Deep Navy for sidebar */
-            padding: 20px;
+            padding: 20px; /* Ensuring there is enough padding inside the sidebar */
             border-radius: 10px;
             color: #ECF0F1; /* Warm Gray text */
+            overflow: auto; /* Ensures content doesn't get cut off */
         }
 
         .sidebar .bio h2 {
@@ -100,6 +102,13 @@
             border-bottom: 2px solid #3498DB; /* Muted Sky Blue underline */
             padding-bottom: 5px;
             font-family: 'Merriweather', serif;
+        }
+
+        .sidebar .bio p {
+            margin: 0; /* Resetting any default margin */
+            padding: 0; /* Ensuring no padding around the text */
+            line-height: 1.5; /* Adding some line height for readability */
+            text-align: justify; /* Aligning text for a clean look */
         }
 
         .sidebar nav ul li a {
