@@ -71,121 +71,15 @@
 
         /* Main Content Layout */
         .container {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 30px;
-            padding: 20px;
             max-width: 1200px;
             margin: auto;
-            margin-top: 80px; /* Adding top margin to avoid content being hidden under the sticky header */
-        }
-
-        /* Sidebar */
-        .sidebar {
-            background-color: #2C3E50; /* Deep Navy for sidebar */
-            padding: 20px; /* Ensuring there is enough padding inside the sidebar */
-            border-radius: 10px;
-            color: #ECF0F1; /* Warm Gray text */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow to add depth */
-            transition: transform 0.3s ease; /* Smooth transition when sidebar elements are hovered */
-        }
-
-        .sidebar .bio h2 {
-            font-size: 1.6em;
-            margin-bottom: 10px;
-            color: #ECF0F1;
-            border-bottom: 2px solid #3498DB; /* Muted Sky Blue underline */
-            padding-bottom: 5px;
-            font-family: 'Merriweather', serif;
-        }
-
-        .sidebar .bio p {
-            margin: 0; /* Resetting any default margin */
-            padding: 0; /* Ensuring no padding around the text */
-            line-height: 1.5; /* Adding some line height for readability */
-            text-align: justify; /* Aligning text for a clean look */
-        }
-
-        .sidebar nav ul li a {
-            color: #3498DB; /* Muted Sky Blue for sidebar links */
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1em;
-            padding: 10px 0;
-            display: block;
-            transition: color 0.3s ease, transform 0.3s ease; /* Hover and transform transition */
-        }
-
-        .sidebar nav ul li a:hover {
-            color: #E67E22; /* Soft Orange hover effect */
-            transform: scale(1.05); /* Slight zoom effect for interaction */
-        }
-
-        /* Main Content */
-        .main-content {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            transition: box-shadow 0.3s ease; /* Smooth transition for any shadow changes */
-        }
-
-        .main-content:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Increase shadow on hover for emphasis */
-        }
-
-        .main-content h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #3498DB; /* Muted Sky Blue underline */
-            padding-bottom: 10px;
-            color: #2C3E50; /* Deep Navy for main headers */
-            font-family: 'Merriweather', serif;
-        }
-
-        /* Collapsible About Me Section */
-        .about-me {
-            max-height: 4.5em; /* Limit the height to show only 2-3 lines */
-            overflow: hidden;
-            position: relative;
-            transition: max-height 0.5s ease; /* Smooth transition for expanding */
-        }
-
-        .about-me.expanded {
-            max-height: 100em; /* Allow it to expand fully when clicked */
-        }
-
-        .about-me::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1.5em;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 100%);
-            /* Gradual fade to white to indicate more content */
-        }
-
-        .continue-button {
-            display: block;
-            background-color: #3498DB; /* Muted Sky Blue */
-            color: white;
-            text-align: center;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .continue-button:hover {
-            background-color: #2C3E50; /* Deep Navy on hover */
+            padding: 20px;
         }
 
         /* eLearning Section */
         .elearning-item {
             perspective: 1000px; /* Enables the 3D perspective */
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             width: 100%;
             height: 400px;
         }
@@ -214,8 +108,8 @@
         }
 
         .front {
-            background: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/WHMIS_Cover_Image.jpeg?raw=true') no-repeat center;
             background-size: cover;
+            background-position: center;
             transform: rotateY(0deg);
         }
 
@@ -238,6 +132,41 @@
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        /* Expandable Work Project Section */
+        .project-section {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: max-height 0.6s ease, opacity 0.6s ease;
+            max-height: 60px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .project-section h3 {
+            margin: 0;
+            font-size: 1.5em;
+            font-family: 'Merriweather', serif;
+            color: #2C3E50;
+        }
+
+        .project-section.expanded {
+            max-height: 1000px; /* Sufficiently large value to show all content */
+            opacity: 1;
+        }
+
+        .project-content {
+            margin-top: 10px;
+            display: none;
+        }
+
+        .project-section.expanded .project-content {
+            display: block;
         }
 
         /* Footer */
@@ -264,7 +193,6 @@
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .container {
-                grid-template-columns: 1fr;
                 padding: 10px;
             }
 
@@ -297,47 +225,76 @@
     </header>
 
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="bio">
-                <h2>About Me</h2>
-                <p>Write a brief bio about yourself here. Highlight your key skills, experiences, and what makes you unique.</p>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <h2 id="about">About Me</h2>
-            <div class="about-me" id="about-me">
-                <p>
-                    Your detailed bio goes here. You can include several paragraphs, and the layout will adjust accordingly. This is the place where you can talk about your experience, your background, and what makes you unique as a Learning & Development Strategist. This bio section provides an in-depth look at who you are and your professional journey.
-                </p>
-            </div>
-            <div class="continue-button" id="continue-btn">Continue Reading</div>
-
-            <h2 id="elearning">eLearning Samples</h2>
-            <div class="elearning-section">
-                <div class="elearning-item">
-                    <div class="flip-container" onclick="this.classList.toggle('flipped');">
-                        <div class="flipper">
-                            <div class="front">
-                                <h3>eLearning Sample 1</h3>
-                            </div>
-                            <div class="back">
-                                <div class="iframe-container">
-                                    <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
-                                </div>
-                            </div>
+        <!-- eLearning Sample 1 -->
+        <div class="elearning-item">
+            <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                <div class="flipper">
+                    <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/WHMIS_Cover_Image.jpeg?raw=true');">
+                        <h3>eLearning Sample 1: WHMIS Training</h3>
+                    </div>
+                    <div class="back">
+                        <div class="iframe-container">
+                            <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- Work Project 1 -->
+        <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({behavior: 'smooth'});">
+            <h3>Project: WHMIS Training Program</h3>
+            <div class="project-content">
+                <p>This project involved the creation and implementation of a comprehensive WHMIS training program...</p>
+                <!-- Add more detailed content as needed -->
+            </div>
+        </div>
 
-            <h2 id="projects">Work Project Summary</h2>
-            <article class="project">
-                <h3>Project: Data Governance Training and Recognition Program</h3>
-                <p>Details of the project...</p>
-            </article>
+        <!-- eLearning Sample 2 -->
+        <div class="elearning-item">
+            <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                <div class="flipper">
+                    <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/Data_Governance_Cover.png?raw=true');">
+                        <h3>eLearning Sample 2: Data Governance</h3>
+                    </div>
+                    <div class="back">
+                        <div class="iframe-container">
+                            <iframe src="https://nathanrwallace.github.io/DataGovernance/" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Work Project 2 -->
+        <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({behavior: 'smooth'});">
+            <h3>Project: Data Governance Training and Recognition Program</h3>
+            <div class="project-content">
+                <p>This project involved the development of a data governance training module...</p>
+                <!-- Add more detailed content as needed -->
+            </div>
+        </div>
+
+        <!-- eLearning Sample 3 -->
+        <div class="elearning-item">
+            <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                <div class="flipper">
+                    <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/decision_making_leadership.jpg?raw=true');">
+                        <h3>eLearning Sample 3: Decision Making & Leadership</h3>
+                    </div>
+                    <div class="back">
+                        <div class="iframe-container">
+                            <iframe src="https://nathanrwallace.github.io/DecisionMaking/" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Work Project 3 -->
+        <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({behavior: 'smooth'});">
+            <h3>Project: Decision Making and Leadership Program</h3>
+            <div class="project-content">
+                <p>This project centered around the creation of a leadership training program focused on decision-making...</p>
+                <!-- Add more detailed content as needed -->
+            </div>
         </div>
     </div>
 
