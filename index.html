@@ -146,7 +146,7 @@
         .iframe-container.expanded {
             transform: scale(1.5) translate(-50%, -50%);
             position: fixed;
-            top: calc(50% + 50px); /* Adjusted to center below the header */
+            top: 50%;
             left: 50%;
             width: 80%;
             height: 80%;
@@ -266,15 +266,26 @@
 
         function toggleExpand(container) {
             const cover = container.querySelector('.cover');
+            const rect = container.getBoundingClientRect();
+            const headerHeight = document.querySelector('.header').offsetHeight;
+
             cover.classList.toggle('hidden');
             container.classList.toggle('expanded');
+
             if (container.classList.contains('expanded')) {
+                container.style.top = `${rect.top + window.scrollY + rect.height / 2}px`;
+                container.style.left = `${rect.left + window.scrollX + rect.width / 2}px`;
+                container.style.transform = `translate(-50%, calc(-50% + ${headerHeight / 2}px)) scale(1.5)`;
+
                 document.addEventListener('click', function(event) {
                     if (!container.contains(event.target)) {
                         cover.classList.remove('hidden');
                         container.classList.remove('expanded');
+                        container.style.transform = 'none';
                     }
                 }, { once: true });
+            } else {
+                container.style.transform = 'none';
             }
         }
     </script>
