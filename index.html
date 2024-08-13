@@ -90,12 +90,12 @@
             width: 25%;
             position: relative;
             top: 0;
+            border: none; /* Ensure no border or line */
         }
 
         .sidebar h2 {
             font-size: 1.6em;
             margin-bottom: 10px;
-            border-bottom: 2px solid #3498DB;
             padding-bottom: 5px;
             font-family: 'Merriweather', serif;
         }
@@ -126,7 +126,7 @@
         /* Specific WHMIS Fix */
         .whmis-item .elearning-item {
             height: 500px; /* Adjusted height specifically for WHMIS */
-            margin-top: 20px; /* Ensure it does not overlap with the header */
+            margin-top: 40px; /* Ensure it does not overlap with the header */
         }
 
         .flip-container {
@@ -263,7 +263,9 @@
     <script>
         function expandSection(section) {
             section.classList.toggle('expanded');
-            section.scrollIntoView({block: 'start', behavior: 'smooth'});
+            setTimeout(() => {
+                section.scrollIntoView({block: 'start', behavior: 'smooth'});
+            }, 300); // Wait for the expansion to start before scrolling
         }
     </script>
 </head>
