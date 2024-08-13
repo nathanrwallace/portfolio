@@ -125,7 +125,8 @@
 
         /* Specific WHMIS Fix */
         .whmis-item .elearning-item {
-            height: 550px; /* Adjusted height specifically for WHMIS */
+            height: 500px; /* Adjusted height specifically for WHMIS */
+            margin-top: 20px; /* Ensure it does not overlap with the header */
         }
 
         .flip-container {
@@ -259,6 +260,12 @@
             }
         }
     </style>
+    <script>
+        function expandSection(section) {
+            section.classList.toggle('expanded');
+            section.scrollIntoView({block: 'start', behavior: 'smooth'});
+        }
+    </script>
 </head>
 <body>
     <header class="header">
@@ -303,7 +310,7 @@
                 </div>
             </div>
             <!-- Work Project 1 -->
-            <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
+            <div class="project-section" onclick="expandSection(this)">
                 <h3>Project: WHMIS Training Program</h3>
                 <div class="project-content">
                     <p>This project involved the creation and implementation of a comprehensive WHMIS training program...</p>
@@ -327,7 +334,7 @@
                 </div>
             </div>
             <!-- Work Project 2 -->
-            <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
+            <div class="project-section" onclick="expandSection(this)">
                 <h3>Project: Data Governance Training and Recognition Program</h3>
                 <div class="project-content">
                     <p>This project involved the development of a data governance training module...</p>
@@ -351,7 +358,7 @@
                 </div>
             </div>
             <!-- Work Project 3 -->
-            <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
+            <div class="project-section" onclick="expandSection(this)">
                 <h3>Project: Decision Making and Leadership Program</h3>
                 <div class="project-content">
                     <p>This project centered around the creation of a leadership training program focused on decision-making...</p>
