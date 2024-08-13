@@ -8,131 +8,89 @@
         /* General Body Styles */
         body {
             font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
-            background-color: #E5E8E8; /* Soft Gray background */
+            background-color: #E5E8E8;
             color: #333;
             line-height: 1.7;
-            padding-top: 60px; /* Space for sticky header */
             margin: 0;
+            padding-top: 80px; /* Space for sticky header */
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            grid-gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* Header and Navigation */
+        /* Header */
         .header {
-            width: 100%;
-            background-color: #2C3E50; /* Deep Navy background for header */
+            grid-column: 1 / -1;
+            background-color: #2C3E50;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            color: #ECF0F1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             position: fixed;
             top: 0;
             left: 0;
+            width: 100%;
             z-index: 1000;
-            transition: background-color 0.3s ease; /* Smooth transition for any color changes */
         }
 
         .header h1 {
-            color: #ECF0F1; /* Warm Gray text color for the header title */
-            font-size: 2.5em;
             margin: 0;
+            font-size: 2.5em;
             font-family: 'Merriweather', serif;
         }
 
         .header h2 {
-            color: #ECF0F1; /* Warm Gray for subheader */
             font-size: 1.2em;
             margin-top: 5px;
             font-weight: 300;
         }
 
-        /* Navigation Styles */
-        .nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .nav ul li {
-            margin: 0 15px;
-        }
-
-        .nav ul li a {
-            color: #E5E8E8;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1em;
-            transition: color 0.3s, border-bottom 0.3s ease; /* Smooth transition for color and border */
-            position: relative;
-        }
-
-        .nav ul li a:hover,
-        .nav ul li a:focus {
-            color: #E67E22; /* Soft Orange on hover */
-            border-bottom: 2px solid #E67E22; /* Underline to indicate focus/hover */
-        }
-
-        /* Main Content Layout */
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-        }
-
         /* Sidebar */
         .sidebar {
-            background-color: #2C3E50; /* Deep Navy for sidebar */
+            background-color: #2C3E50;
             padding: 20px;
             border-radius: 10px;
-            color: #ECF0F1; /* Warm Gray text */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow to add depth */
-            width: 30%; /* Increased width */
-            position: sticky;
-            top: 80px; /* Positioning below the header */
+            color: #ECF0F1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             height: fit-content;
         }
 
-        .sidebar .bio h2 {
+        .sidebar h2 {
             font-size: 1.6em;
             margin-bottom: 10px;
-            color: #ECF0F1;
-            border-bottom: 2px solid #3498DB; /* Muted Sky Blue underline */
+            border-bottom: 2px solid #3498DB;
             padding-bottom: 5px;
             font-family: 'Merriweather', serif;
         }
 
-        .sidebar .bio p {
-            margin: 0;
-            padding: 0;
+        .sidebar p {
             line-height: 1.5;
             text-align: justify;
         }
 
         /* Main Content */
         .main-content {
-            background: white;
-            padding: 0;
-            border-radius: 10px;
-            width: 68%; /* Adjusted width */
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
         }
 
         /* eLearning Section */
         .elearning-item {
-            perspective: 1000px; /* Enables the 3D perspective */
-            margin-bottom: 20px;
-            width: 100%;
-            height: 450px; /* Increased height for better display */
+            perspective: 1000px;
+            height: 450px;
             position: relative;
         }
 
         .flip-container {
-            position: relative;
             width: 100%;
             height: 100%;
             cursor: pointer;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .flipper {
@@ -180,11 +138,10 @@
 
         /* Expandable Work Project Section */
         .project-section {
-            margin-top: 20px;
-            padding: 15px;
             background-color: #ffffff;
+            padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: max-height 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease;
             max-height: 60px;
             overflow: hidden;
@@ -203,21 +160,21 @@
         }
 
         .project-section h3::after {
-            content: '\25BC'; /* Down arrow indicator */
+            content: '\25BC';
             margin-left: auto;
             font-size: 1.2em;
-            color: #3498DB; /* Muted Sky Blue */
+            color: #3498DB;
             transition: transform 0.3s ease;
         }
 
         .project-section.expanded h3::after {
-            transform: rotate(180deg); /* Flip the arrow when expanded */
+            transform: rotate(180deg);
         }
 
         .project-section.expanded {
-            max-height: 1000px; /* Sufficiently large value to show all content */
+            max-height: 1000px;
             opacity: 1;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Increase shadow for emphasis */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .project-content {
@@ -231,19 +188,14 @@
 
         /* Footer */
         footer {
+            grid-column: 1 / -1;
             text-align: center;
             padding: 20px;
-            background-color: #2C3E50; /* Deep Navy for footer */
+            background-color: #2C3E50;
             color: white;
-            margin-top: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for footer hover */
-        }
-
-        footer:hover {
-            background-color: #1B2838; /* Slightly darker navy on hover for emphasis */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Increase shadow on hover for emphasis */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
 
         footer p {
@@ -252,29 +204,8 @@
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-
-            .sidebar {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .main-content {
-                width: 100%;
-            }
-
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .nav ul {
-                flex-direction: column;
-            }
-
-            .nav ul li {
-                margin: 10px 0;
+            body {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -293,87 +224,85 @@
         </nav>
     </header>
 
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="bio">
-                <h2>About Me</h2>
-                <p>Write a brief bio about yourself here. Highlight your key skills, experiences, and what makes you unique.</p>
-            </div>
-        </aside>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="bio">
+            <h2>About Me</h2>
+            <p>Write a brief bio about yourself here. Highlight your key skills, experiences, and what makes you unique.</p>
+        </div>
+    </aside>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- eLearning Sample 1 -->
-            <div class="elearning-item">
-                <div class="flip-container" onclick="this.classList.toggle('flipped');">
-                    <div class="flipper">
-                        <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/WHMIS_Cover_Image.jpeg?raw=true');">
-                            <h3>eLearning Sample 1: WHMIS Training</h3>
-                        </div>
-                        <div class="back">
-                            <div class="iframe-container">
-                                <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
-                            </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- eLearning Sample 1 -->
+        <div class="elearning-item">
+            <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                <div class="flipper">
+                    <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/WHMIS_Cover_Image.jpeg?raw=true');">
+                        <h3>eLearning Sample 1: WHMIS Training</h3>
+                    </div>
+                    <div class="back">
+                        <div class="iframe-container">
+                            <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Work Project 1 -->
-            <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
-                <h3>Project: WHMIS Training Program</h3>
-                <div class="project-content">
-                    <p>This project involved the creation and implementation of a comprehensive WHMIS training program...</p>
-                    <!-- Add more detailed content as needed -->
-                </div>
+        </div>
+        <!-- Work Project 1 -->
+        <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
+            <h3>Project: WHMIS Training Program</h3>
+            <div class="project-content">
+                <p>This project involved the creation and implementation of a comprehensive WHMIS training program...</p>
+                <!-- Add more detailed content as needed -->
             </div>
+        </div>
 
-            <!-- eLearning Sample 2 -->
-            <div class="elearning-item">
-                <div class="flip-container" onclick="this.classList.toggle('flipped');">
-                    <div class="flipper">
-                        <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/Data_Governance_Cover.png?raw=true');">
-                            <h3>eLearning Sample 2: Data Governance Principles</h3>
-                        </div>
-                        <div class="back">
-                            <div class="iframe-container">
-                                <iframe src="https://nathanrwallace.github.io/Data-Governance-Principles/" allowfullscreen></iframe>
-                            </div>
+        <!-- eLearning Sample 2 -->
+        <div class="elearning-item">
+            <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                <div class="flipper">
+                    <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/Data_Governance_Cover.png?raw=true');">
+                        <h3>eLearning Sample 2: Data Governance Principles</h3>
+                    </div>
+                    <div class="back">
+                        <div class="iframe-container">
+                            <iframe src="https://nathanrwallace.github.io/Data-Governance-Principles/" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Work Project 2 -->
-            <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
-                <h3>Project: Data Governance Training and Recognition Program</h3>
-                <div class="project-content">
-                    <p>This project involved the development of a data governance training module...</p>
-                    <!-- Add more detailed content as needed -->
-                </div>
+        </div>
+        <!-- Work Project 2 -->
+        <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
+            <h3>Project: Data Governance Training and Recognition Program</h3>
+            <div class="project-content">
+                <p>This project involved the development of a data governance training module...</p>
+                <!-- Add more detailed content as needed -->
             </div>
+        </div>
 
-            <!-- eLearning Sample 3 -->
-            <div class="elearning-item">
-                <div class="flip-container" onclick="this.classList.toggle('flipped');">
-                    <div class="flipper">
-                        <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/decision_making_leadership.jpg?raw=true');">
-                            <h3>eLearning Sample 3: Decision Making in Leadership</h3>
-                        </div>
-                        <div class="back">
-                            <div class="iframe-container">
-                                <iframe src="https://nathanrwallace.github.io/Decision-Making-in-Leadership/" allowfullscreen></iframe>
-                            </div>
+        <!-- eLearning Sample 3 -->
+        <div class="elearning-item">
+            <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                <div class="flipper">
+                    <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/decision_making_leadership.jpg?raw=true');">
+                        <h3>eLearning Sample 3: Decision Making in Leadership</h3>
+                    </div>
+                    <div class="back">
+                        <div class="iframe-container">
+                            <iframe src="https://nathanrwallace.github.io/Decision-Making-in-Leadership/" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Work Project 3 -->
-            <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
-                <h3>Project: Decision Making and Leadership Program</h3>
-                <div class="project-content">
-                    <p>This project centered around the creation of a leadership training program focused on decision-making...</p>
-                    <!-- Add more detailed content as needed -->
-                </div>
+        </div>
+        <!-- Work Project 3 -->
+        <div class="project-section" onclick="this.classList.toggle('expanded'); this.scrollIntoView({block: 'start', behavior: 'smooth'});">
+            <h3>Project: Decision Making and Leadership Program</h3>
+            <div class="project-content">
+                <p>This project centered around the creation of a leadership training program focused on decision-making...</p>
+                <!-- Add more detailed content as needed -->
             </div>
         </div>
     </div>
