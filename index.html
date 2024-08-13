@@ -140,6 +140,7 @@
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.4s ease-in-out;
+            position: relative;
         }
 
         .iframe-container.expanded {
@@ -151,6 +152,23 @@
             height: 75%;
             z-index: 1000;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .cover.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .iframe-container iframe {
@@ -247,10 +265,13 @@
         }
 
         function toggleExpand(container) {
+            const cover = container.querySelector('.cover');
+            cover.classList.toggle('hidden');
             container.classList.toggle('expanded');
             if (container.classList.contains('expanded')) {
                 document.addEventListener('click', function(event) {
                     if (!container.contains(event.target)) {
+                        cover.classList.remove('hidden');
                         container.classList.remove('expanded');
                     }
                 }, { once: true });
@@ -287,6 +308,8 @@
             <div class="whmis-item">
                 <div class="elearning-item">
                     <div class="iframe-container" onclick="toggleExpand(this);">
+                        <div class="cover" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/WHMIS_Cover_Image.jpeg?raw=true');">
+                        </div>
                         <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -303,6 +326,8 @@
             <!-- eLearning Sample 2 -->
             <div class="elearning-item">
                 <div class="iframe-container" onclick="toggleExpand(this);">
+                    <div class="cover" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/Data_Governance_Cover.png?raw=true');">
+                    </div>
                     <iframe src="https://nathanrwallace.github.io/Data-Governance-Principles/" allowfullscreen></iframe>
                 </div>
             </div>
@@ -318,6 +343,8 @@
             <!-- eLearning Sample 3 -->
             <div class="elearning-item">
                 <div class="iframe-container" onclick="toggleExpand(this);">
+                    <div class="cover" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/decision_making_leadership.jpg?raw=true');">
+                    </div>
                     <iframe src="https://nathanrwallace.github.io/Decision-Making-in-Leadership/" allowfullscreen></iframe>
                 </div>
             </div>
