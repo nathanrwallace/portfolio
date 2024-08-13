@@ -12,7 +12,7 @@
             color: #333;
             line-height: 1.7;
             margin: 0;
-            padding-top: 80px; /* Space for sticky header */
+            padding-top: 100px; /* Increased space for sticky header */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -121,11 +121,13 @@
             width: 100%;
             height: 450px; /* Set a fixed height */
             position: relative;
+            padding-top: 20px; /* Adding padding to ensure no overlap */
+            box-sizing: border-box; /* Ensure padding is included in height */
         }
 
         /* Specific WHMIS Fix */
         .whmis-item {
-            margin-top: 60px; /* Increased margin to ensure it stays below the header */
+            margin-top: 80px; /* Increased margin to ensure it stays below the header */
         }
         
         .whmis-item .elearning-item {
