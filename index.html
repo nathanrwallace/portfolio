@@ -116,7 +116,6 @@
 
         /* eLearning Section */
         .elearning-item {
-            perspective: 1000px;
             margin-bottom: 20px;
             width: 100%;
             height: 450px; /* Set a fixed height */
@@ -139,37 +138,6 @@
             height: 100%;
             border-radius: 10px;
             overflow: hidden;
-            transition: transform 0.4s ease-in-out, top 0.4s ease-in-out, left 0.4s ease-in-out;
-            position: relative;
-        }
-
-        .iframe-container.expanded {
-            transform: scale(1.5);
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(1.5);
-            width: 80%;
-            height: 80%;
-            z-index: 2000; /* Ensure it's on top of everything */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .cover {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            cursor: pointer;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .cover.hidden {
-            opacity: 0;
-            pointer-events: none;
         }
 
         .iframe-container iframe {
@@ -257,46 +225,6 @@
             }
         }
     </style>
-    <script>
-        function expandSection(section) {
-            section.classList.toggle('expanded');
-            setTimeout(() => {
-                section.scrollIntoView({block: 'start', behavior: 'smooth'});
-            }, 600); // Wait for the expansion to mostly complete before scrolling
-        }
-
-        function toggleExpand(container) {
-            const cover = container.querySelector('.cover');
-            const headerHeight = document.querySelector('.header').offsetHeight;
-            const containerRect = container.getBoundingClientRect();
-            const topOffset = containerRect.top + window.scrollY - headerHeight;
-
-            cover.classList.toggle('hidden');
-            container.classList.toggle('expanded');
-
-            if (container.classList.contains('expanded')) {
-                container.style.position = 'fixed';
-                container.style.top = `${topOffset}px`;
-                container.style.left = '50%';
-                container.style.transform = 'translate(-50%, 0) scale(1.5)';
-                document.addEventListener('click', function(event) {
-                    if (!container.contains(event.target)) {
-                        cover.classList.remove('hidden');
-                        container.classList.remove('expanded');
-                        container.style.position = '';
-                        container.style.top = '';
-                        container.style.left = '';
-                        container.style.transform = '';
-                    }
-                }, { once: true });
-            } else {
-                container.style.position = '';
-                container.style.top = '';
-                container.style.left = '';
-                container.style.transform = '';
-            }
-        }
-    </script>
 </head>
 <body>
     <header class="header">
@@ -326,15 +254,13 @@
             <!-- eLearning Sample 1 -->
             <div class="whmis-item">
                 <div class="elearning-item">
-                    <div class="iframe-container" onclick="toggleExpand(this);">
-                        <div class="cover" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/WHMIS_Cover_Image.jpeg?raw=true');">
-                        </div>
+                    <div class="iframe-container">
                         <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
             <!-- Work Project 1 -->
-            <div class="project-section" onclick="expandSection(this)">
+            <div class="project-section">
                 <h3>Project: WHMIS Training Program</h3>
                 <div class="project-content">
                     <p>This project involved the creation and implementation of a comprehensive WHMIS training program...</p>
@@ -344,14 +270,12 @@
 
             <!-- eLearning Sample 2 -->
             <div class="elearning-item">
-                <div class="iframe-container" onclick="toggleExpand(this);">
-                    <div class="cover" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/Data_Governance_Cover.png?raw=true');">
-                    </div>
+                <div class="iframe-container">
                     <iframe src="https://nathanrwallace.github.io/Data-Governance-Principles/" allowfullscreen></iframe>
                 </div>
             </div>
             <!-- Work Project 2 -->
-            <div class="project-section" onclick="expandSection(this)">
+            <div class="project-section">
                 <h3>Project: Data Governance Training and Recognition Program</h3>
                 <div class="project-content">
                     <p>This project involved the development of a data governance training module...</p>
@@ -361,14 +285,12 @@
 
             <!-- eLearning Sample 3 -->
             <div class="elearning-item">
-                <div class="iframe-container" onclick="toggleExpand(this);">
-                    <div class="cover" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/decision_making_leadership.jpg?raw=true');">
-                    </div>
+                <div class="iframe-container">
                     <iframe src="https://nathanrwallace.github.io/Decision-Making-in-Leadership/" allowfullscreen></iframe>
                 </div>
             </div>
             <!-- Work Project 3 -->
-            <div class="project-section" onclick="expandSection(this)">
+            <div class="project-section">
                 <h3>Project: Decision Making and Leadership Program</h3>
                 <div class="project-content">
                     <p>This project centered around the creation of a leadership training program focused on decision-making...</p>
