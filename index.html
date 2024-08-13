@@ -12,7 +12,7 @@
             color: #333;
             line-height: 1.7;
             margin: 0;
-            padding-top: 100px; /* Increased space for sticky header */
+            padding-top: 100px; /* Space for sticky header */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -146,7 +146,7 @@
         .iframe-container.expanded {
             transform: scale(1.5) translate(-50%, -50%);
             position: fixed;
-            top: 50%;
+            top: calc(50% + 50px); /* Adjusted to center below the header */
             left: 50%;
             width: 80%;
             height: 80%;
