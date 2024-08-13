@@ -141,6 +141,16 @@
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+        }
+
+        .flipped .flip-container {
+            transform: scale(1.5) translate(-50%, -50%);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .flipper {
@@ -272,6 +282,17 @@
                 section.scrollIntoView({block: 'start', behavior: 'smooth'});
             }, 300); // Wait for the expansion to start before scrolling
         }
+
+        function flipAndExpand(container) {
+            container.classList.toggle('flipped');
+            if (container.classList.contains('flipped')) {
+                document.addEventListener('click', function(event) {
+                    if (!container.contains(event.target)) {
+                        container.classList.remove('flipped');
+                    }
+                }, { once: true });
+            }
+        }
     </script>
 </head>
 <body>
@@ -302,7 +323,7 @@
             <!-- eLearning Sample 1 -->
             <div class="whmis-item">
                 <div class="elearning-item">
-                    <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                    <div class="flip-container" onclick="flipAndExpand(this);">
                         <div class="flipper">
                             <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/WHMIS_Cover_Image.jpeg?raw=true');">
                                 <h3>eLearning Sample 1: WHMIS Training</h3>
@@ -327,7 +348,7 @@
 
             <!-- eLearning Sample 2 -->
             <div class="elearning-item">
-                <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                <div class="flip-container" onclick="flipAndExpand(this);">
                     <div class="flipper">
                         <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/Data_Governance_Cover.png?raw=true');">
                             <h3>eLearning Sample 2: Data Governance Principles</h3>
@@ -351,7 +372,7 @@
 
             <!-- eLearning Sample 3 -->
             <div class="elearning-item">
-                <div class="flip-container" onclick="this.classList.toggle('flipped');">
+                <div class="flip-container" onclick="flipAndExpand(this);">
                     <div class="flipper">
                         <div class="front" style="background-image: url('https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/decision_making_leadership.jpg?raw=true');">
                             <h3>eLearning Sample 3: Decision Making in Leadership</h3>
