@@ -138,12 +138,43 @@
             height: 100%;
             border-radius: 10px;
             overflow: hidden;
+            position: relative;
         }
 
         .iframe-container iframe {
             width: 100%;
             height: 100%;
             border: none;
+        }
+
+        /* Cover Styling */
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent cover */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .cover img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cover.hidden {
+            opacity: 0;
+            visibility: hidden;
         }
 
         /* Expandable Work Project Section */
@@ -224,6 +255,11 @@
             }
         }
     </style>
+    <script>
+        function hideCover(coverId) {
+            document.getElementById(coverId).classList.add('hidden');
+        }
+    </script>
 </head>
 <body>
     <header class="header">
@@ -254,6 +290,9 @@
             <div class="whmis-item">
                 <div class="elearning-item">
                     <div class="iframe-container">
+                        <div id="cover1" class="cover" onclick="hideCover('cover1')">
+                            <img src="https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/WHMIS_Cover_Image.jpeg" alt="WHMIS Training">
+                        </div>
                         <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -263,13 +302,15 @@
                 <h3>Project: WHMIS Training Program</h3>
                 <div class="project-content">
                     <p>This project involved the creation and implementation of a comprehensive WHMIS training program...</p>
-                    <!-- Add more detailed content as needed -->
                 </div>
             </div>
 
             <!-- eLearning Sample 2 -->
             <div class="elearning-item">
                 <div class="iframe-container">
+                    <div id="cover2" class="cover" onclick="hideCover('cover2')">
+                        <img src="https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/Data_Governance_Cover.png" alt="Data Governance Training">
+                    </div>
                     <iframe src="https://nathanrwallace.github.io/Data-Governance-Principles/" allowfullscreen></iframe>
                 </div>
             </div>
@@ -278,13 +319,15 @@
                 <h3>Project: Data Governance Training and Recognition Program</h3>
                 <div class="project-content">
                     <p>This project involved the development of a data governance training module...</p>
-                    <!-- Add more detailed content as needed -->
                 </div>
             </div>
 
             <!-- eLearning Sample 3 -->
             <div class="elearning-item">
                 <div class="iframe-container">
+                    <div id="cover3" class="cover" onclick="hideCover('cover3')">
+                        <img src="https://github.com/nathanrwallace/nathanrwallace.github.io/blob/main/decision_making_leadership.jpg" alt="Decision Making and Leadership">
+                    </div>
                     <iframe src="https://nathanrwallace.github.io/Decision-Making-in-Leadership/" allowfullscreen></iframe>
                 </div>
             </div>
@@ -293,7 +336,6 @@
                 <h3>Project: Decision Making and Leadership Program</h3>
                 <div class="project-content">
                     <p>This project centered around the creation of a leadership training program focused on decision-making...</p>
-                    <!-- Add more detailed content as needed -->
                 </div>
             </div>
         </div>
