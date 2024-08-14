@@ -91,10 +91,9 @@
             width: 25%;
             margin-right: 20px;
             box-sizing: border-box;
-            height: 100%; /* Match the height of the container */
+            min-height: 100vh; /* Ensures it extends to at least the full viewport height */
             position: sticky;
             top: 120px; /* Keep below header */
-            align-self: stretch; /* Ensure it stretches to fill container */
         }
 
         .sidebar h2 {
@@ -117,7 +116,7 @@
             width: 75%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
-            align-self: stretch; /* Ensure it stretches to fill container */
+            min-height: 100vh; /* Ensures main content extends to full height */
         }
 
         /* eLearning Section */
