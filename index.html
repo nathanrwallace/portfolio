@@ -12,6 +12,9 @@
             color: #333;
             margin: 0;
             padding: 0;
+            min-height: 100vh; /* Ensures body takes full viewport height */
+            display: flex;
+            flex-direction: column;
         }
 
         /* Header */
@@ -69,12 +72,13 @@
         /* Main Layout */
         .container {
             display: flex;
+            flex: 1; /* Ensures container takes full remaining height */
             max-width: 1200px;
             width: 100%;
-            margin: 120px auto 0; /* Increased margin to push content further down */
+            margin: 120px auto 0; /* Margin to push content below header */
             padding: 20px;
             box-sizing: border-box;
-            min-height: calc(100vh - 120px); /* Ensure content takes full viewport height */
+            align-items: flex-start;
         }
 
         /* Sidebar */
@@ -86,11 +90,11 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 25%;
             margin-right: 20px;
-            align-self: flex-start;
-            position: sticky;
-            top: 120px; /* Adjusted to match new content margin */
-            height: 100%; /* Ensures it extends full height of the container */
             box-sizing: border-box;
+            height: 100%; /* Match the height of the container */
+            position: sticky;
+            top: 120px; /* Keep below header */
+            align-self: stretch; /* Ensure it stretches to fill container */
         }
 
         .sidebar h2 {
@@ -112,9 +116,8 @@
             border-radius: 10px;
             width: 75%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            align-self: flex-start;
             box-sizing: border-box;
-            min-height: 100%;
+            align-self: stretch; /* Ensure it stretches to fill container */
         }
 
         /* eLearning Section */
