@@ -10,18 +10,12 @@
             font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
             background-color: #E5E8E8;
             color: #333;
-            line-height: 1.7;
             margin: 0;
-            display: grid;
-            grid-template-rows: auto 1fr;
-            grid-template-columns: 1fr;
-            height: 100vh;
+            padding: 0;
         }
 
         /* Header */
         .header {
-            grid-row: 1 / 2;
-            grid-column: 1 / 2;
             width: 100%;
             background-color: #2C3E50;
             padding: 20px;
@@ -46,30 +40,54 @@
             font-weight: 300;
         }
 
-        /* Container for Sidebar and Main Content */
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            grid-template-rows: auto;
-            width: 100%;
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav ul li {
+            margin: 0 15px;
+        }
+
+        .nav ul li a {
+            color: #E5E8E8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: color 0.3s, border-bottom 0.3s ease;
+        }
+
+        .nav ul li a:hover,
+        .nav ul li a:focus {
+            color: #E67E22;
+            border-bottom: 2px solid #E67E22;
+        }
+
+        /* Main Layout */
+        .container {
+            display: flex;
             max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 80px; /* Add enough padding to clear the fixed header */
+            width: 100%;
+            margin: 100px auto 0; /* Margin to account for the fixed header */
+            padding: 20px;
             box-sizing: border-box;
-            gap: 20px;
         }
 
         /* Sidebar */
         .sidebar {
-            grid-column: 1 / 2;
             background-color: #2C3E50;
             padding: 20px;
             border-radius: 10px;
             color: #ECF0F1;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 25%;
+            margin-right: 20px;
+            align-self: flex-start;
             position: sticky;
-            top: 100px; /* Ensure it stays visible when scrolling */
-            align-self: start;
+            top: 100px; /* Ensures it stays below the header */
         }
 
         .sidebar h2 {
@@ -86,12 +104,12 @@
 
         /* Main Content */
         .main-content {
-            grid-column: 2 / 3;
             background: white;
             padding: 20px;
             border-radius: 10px;
+            width: 75%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            align-self: start;
+            align-self: flex-start;
         }
 
         /* eLearning Section */
@@ -188,15 +206,14 @@
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto;
-                gap: 0;
+            .container {
+                flex-direction: column;
+                padding: 20px 10px;
             }
 
             .sidebar, .main-content {
-                grid-column: 1 / 2;
                 width: 100%;
+                margin-right: 0;
             }
         }
     </style>
@@ -215,7 +232,7 @@
         </nav>
     </header>
 
-    <div class="content">
+    <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="bio">
