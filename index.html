@@ -238,65 +238,74 @@
 }
 
         /* Expandable Work Project Section */
-        .project-section {
-            background-color: #ffffff;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-height: 60px;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
+    .project-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 15px solid #5DADE2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    position: relative; /* Needed for tooltip positioning */
+}
 
-        .project-section h3 {
-            margin: 0;
-            font-size: 1.5em;
-            font-family: 'Merriweather', serif;
-            color: #2C3E50;
-            display: flex;
-            align-items: center;
-        }
+.project-section:hover::after {
+    content: "Click to read the full details";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.75em;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
 
-        .project-section h3::after {
-            content: '\25BC';
-            margin-left: auto;
-            font-size: 1.2em;
-            color: #3498DB;
-            transition: transform 0.3s ease;
-        }
+.project-section:hover::after {
+    opacity: 1;
+}
 
-        .project-section.expanded h3::after {
-            transform: rotate(180deg);
-        }
+.project-section:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-left-color: #2C3E50;
+}
 
-        .project-section.expanded {
-            max-height: 1000px;
-            opacity: 1;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
+.project-section h3 {
+    margin: 0;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Positioning for the tooltip */
+}
+.expand-icon {
+    font-size: 1.4em;
+    margin-left: 10px;
+    position: relative;
+}
 
-        .project-content {
-            margin-top: 10px;
-            display: none;
-        }
+.expand-text {
+    font-size: 0.8em;
+    margin-left: 5px;
+    color: #5dade2;
+}
 
-        .project-section.expanded .project-content {
-            display: block;
-        }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #2C3E50;
-            color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
+.project-section h3::after {
+    color: #5DADE2; /* Update expand icon color */
+}
+
+
+.project-content {
+    margin-top: 15px;
+}
 
         footer p {
             margin: 0;
@@ -315,11 +324,24 @@
             }
         }
     </style>
+
     <script>
         function hideCover(coverId) {
             document.getElementById(coverId).classList.add('hidden');
         }
     </script>
+
+<script>
+    function toggleProject(element) {
+        var content = element.querySelector('.project-content');
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    }
+</script>
+
 
 <script>
 function openModal(url) {
@@ -392,24 +414,19 @@ window.onclick = function(event) {
         <!-- Main Content -->
         <div class="main-content">
             <!-- eLearning Sample 1 -->
-            <div class="whmis-item">
-                <div class="elearning-item">
-                    <div class="iframe-container">
-                        <div id="cover1" class="cover" onclick="openModal('https://nathanrwallace.github.io/WHMIS/')">
-                            <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/WHMIS_Cover_Image.jpeg" alt="WHMIS Training">
-                        </div>
-                        <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
+            <div class="elearning-item">
+                <!-- eLearning Sample -->
+                <div class="iframe-container">
+                    <div class="cover" onclick="openModal('https://nathanrwallace.github.io/WHMIS/')">
+                        <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/WHMIS_Cover_Image.jpeg" alt="WHMIS Training">
                     </div>
+                    <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
                 </div>
             </div>
-            <!-- Work Project 1 -->
+            
             <div class="project-section">
                 <h3>Project: WHMIS Training Program</h3>
-                <div class="project-content">
-                    <p>This project involved the creation and implementation of a comprehensive WHMIS training program...</p>
-                </div>
             </div>
-
             <!-- eLearning Sample 2 -->
             <div class="elearning-item">
                 <div class="iframe-container">
@@ -420,13 +437,37 @@ window.onclick = function(event) {
                 </div>
             </div>
             <!-- Work Project 2 -->
-            <div class="project-section">
-                <h3>Project: Data Governance Training and Recognition Program</h3>
-                <div class="project-content">
-                    <p>This project involved the development of a data governance training module...</p>
+            <div class="project-section" onclick="toggleProject(this)">
+                <h3>Project: Data Governance Training & Recognition Program
+                    <span class="expand-icon">+</span>
+                </h3>
+                <div class="project-content" style="display: none;">
+                    <p><strong>Objective:</strong> Educate HR employees on data governance principles, align them with IT policies, and engage them through an ongoing recognition program.</p>
+                    
+                    <p><strong>Approach:</strong></p>
+                    <ul>
+                        <li><strong>eLearning Module:</strong> Developed interactive scenarios and real-life applications to make data governance engaging and practical.</li>
+                        <li><strong>Recognition Program:</strong> Built an automated system that recognized adherence to data governance practices, integrating with existing tools like Microsoft Forms and Power Automate.</li>
+                    </ul>
+            
+                    <p><strong>Tools:</strong> Storyline 360, Microsoft Forms, Power Automate, Power BI, Adobe Illustrator.</p>
+            
+                    <p><strong>Impact:</strong></p>
+                    <ul>
+                        <li><strong>Employee Engagement:</strong> Over 1,000 recognitions logged, with monthly celebrations in HR meetings that have shifted the culture toward proactive data governance.</li>
+                        <li><strong>Efficiency Gains:</strong> A 50% reduction in time spent on data corrections, thanks to better practices and process improvements.</li>
+                        <li><strong>Cost Savings:</strong> Saved $30k by using in-house tools instead of purchasing an external recognition platform.</li>
+                    </ul>
+            
+                    <p><strong>Role:</strong> Led needs assessment, designed the recognition program, developed the eLearning course, and created interactive, scenario-based learning experiences.</p>
+            
+                    <p><strong>Timeline:</strong></p>
+                    <ul>
+                        <li><strong>6 Weeks:</strong> eLearning course development, from scripting to final reviews.</li>
+                        <li><strong>1 Month:</strong> Recognition program design and implementation using Microsoft 360 tools.</li>
+                    </ul>
                 </div>
             </div>
-
             <!-- eLearning Sample 3 -->
             <div class="elearning-item">
                 <div class="iframe-container">
