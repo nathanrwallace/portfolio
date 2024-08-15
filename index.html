@@ -291,6 +291,31 @@
     position: relative;
 }
 
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+
+    .sidebar {
+        display: none; /* Hide the sidebar on mobile */
+    }
+
+    .main-content {
+        width: 100%; /* Take up full width on mobile */
+        margin-right: 0;
+    }
+
+    .project-section {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .modal-content {
+        width: 90%; /* Make modal content more compact on mobile */
+        margin: 10% auto; /* Adjust modal positioning */
+    }
+}
+
 .expand-text {
     font-size: 0.8em;
     margin-left: 5px;
