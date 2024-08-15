@@ -149,27 +149,26 @@
 
         /* Cover Styling */
         .cover {
-            background-color: rgba(0, 0, 0, 0.7); /* Darker background for better contrast */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Adds shadow to make text stand out */
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.5em;
             text-align: center;
             cursor: pointer;
-            transition: opacity 0.3s ease;
+            z-index: 10;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ensure text visibility */
         }
+
         .cover img {
-            max-width: 100%;
-            max-height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            opacity: 0.7; /* Apply opacity to the image */
             border-radius: 10px;
         }
 
@@ -177,6 +176,66 @@
             opacity: 0;
             visibility: hidden;
         }
+
+/* Modal container, initially hidden */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    animation: fadeInScale 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    border: none;
+    border-radius: 10px;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
         /* Expandable Work Project Section */
         .project-section {
@@ -261,6 +320,44 @@
             document.getElementById(coverId).classList.add('hidden');
         }
     </script>
+
+<script>
+function openModal(url) {
+    var modal = document.getElementById("modal");
+    var iframe = document.getElementById("modal-iframe");
+    iframe.src = url;
+    modal.style.display = "block";
+    document.querySelector('.modal-content').style.transform = 'translateY(0)';
+}
+
+function closeModal() {
+    var modal = document.getElementById("modal");
+    modal.style.display = "none";
+    var iframe = document.getElementById("modal-iframe");
+    iframe.src = "";
+}
+
+window.onclick = function(event) {
+    var modal = document.getElementById("modal");
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
+
+    <script>
+        function openPopup(url) {
+            if (window.innerWidth > 768) {  // Only for PC screens
+                var width = 800;
+                var height = 600;
+                var left = (screen.width - width) / 2;
+                var top = (screen.height - height) / 2;
+                window.open(url, 'popup', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left);
+            } else {
+                window.location.href = url;  // For mobile, open in the same window
+            }
+        }
+        </script>
 </head>
 <body>
     <header class="header">
@@ -275,6 +372,13 @@
             </ul>
         </nav>
     </header>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe id="modal-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
 
     <div class="container">
         <!-- Sidebar -->
@@ -291,7 +395,7 @@
             <div class="whmis-item">
                 <div class="elearning-item">
                     <div class="iframe-container">
-                        <div id="cover1" class="cover" onclick="hideCover('cover1')">
+                        <div id="cover1" class="cover" onclick="openModal('https://nathanrwallace.github.io/WHMIS/')">
                             <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/WHMIS_Cover_Image.jpeg" alt="WHMIS Training">
                         </div>
                         <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
@@ -309,7 +413,7 @@
             <!-- eLearning Sample 2 -->
             <div class="elearning-item">
                 <div class="iframe-container">
-                    <div id="cover2" class="cover" onclick="hideCover('cover2')">
+                    <div id="cover2" class="cover" onclick="openModal('https://nathanrwallace.github.io/Data-Governance-Principles/')">
                         <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/Data_Governance_Cover.png" alt="Data Governance Training">
                     </div>
                     <iframe src="https://nathanrwallace.github.io/Data-Governance-Principles/" allowfullscreen></iframe>
@@ -326,7 +430,7 @@
             <!-- eLearning Sample 3 -->
             <div class="elearning-item">
                 <div class="iframe-container">
-                    <div id="cover3" class="cover" onclick="hideCover('cover3')">
+                    <div id="cover3" class="cover" onclick="openModal('https://nathanrwallace.github.io/Decision-Making-in-Leadership/')">
                         <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/decision_making_leadership.jpg" alt="Decision Making and Leadership">
                     </div>
                     <iframe src="https://nathanrwallace.github.io/Decision-Making-in-Leadership/" allowfullscreen></iframe>
