@@ -293,55 +293,43 @@
 
 @media (max-width: 768px) {
     .header {
-        padding: 15px 10px; /* Adjust padding for mobile */
-        text-align: center; /* Ensure the header is centered */
+        padding: 20px 15px;
+        text-align: center;
+        box-sizing: border-box;
     }
 
     .header h1 {
-        font-size: 1.8em; /* Reduce font size for mobile */
-        word-wrap: break-word; /* Handle long titles */
+        font-size: 2em; /* Adjusted size */
         margin: 0;
     }
 
     .header h2 {
-        font-size: 1em; /* Adjust subtitle size for mobile */
+        font-size: 1.2em; /* Adjusted size */
         margin-top: 5px;
         margin-bottom: 10px;
     }
 
     .nav ul {
         padding: 0;
-        margin: 10px auto; /* Center the navigation menu */
+        margin: 0 auto; /* Center the navigation menu */
         display: flex;
         justify-content: center;
+        flex-wrap: wrap; /* Allow wrapping to fit */
     }
 
     .nav ul li {
-        margin: 0 8px; /* Adjust spacing between nav items */
+        margin: 0 10px;
     }
 
     .container {
         flex-direction: column;
         padding: 20px 10px;
-        padding-top: 120px; /* Ensure content starts below header */
-    }
-
-    .sidebar {
-        display: none; /* Hide sidebar on mobile */
+        padding-top: 140px; /* Adjust for header space */
     }
 
     .main-content {
-        width: 100%; /* Full width on mobile */
+        width: 100%;
         margin-right: 0;
-    }
-
-    .project-section {
-        padding: 15px; /* Adjust padding for mobile */
-    }
-
-    .modal-content {
-        width: 90%; /* Compact modal content for mobile */
-        margin: 10% auto; /* Adjust modal positioning */
     }
 }
 .expand-text {
