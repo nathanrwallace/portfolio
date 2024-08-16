@@ -295,6 +295,7 @@
     .container {
         flex-direction: column;
         padding: 20px 10px;
+        margin-top: 120px; /* Add top margin to prevent content from being hidden under the header */
     }
 
     .sidebar {
@@ -348,6 +349,63 @@
                 margin-right: 0;
             }
         }
+
+        .about-me-section {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9f9; /* Subtle background tint */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+
+#about-me-preview {
+    position: relative;
+    max-height: 4.5em; /* Adjust based on desired preview height */
+    overflow: hidden;
+    background-color: #f8f9f9; /* Match the section background */
+
+}
+
+#about-me-preview::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2em;
+    background: linear-gradient(to bottom, rgba(248, 249, 249, 0), rgba(248, 249, 249, 1)); /* Match the preview background */
+    pointer-events: none; /* Ensures it doesn't block clicks */
+    z-index: 0; /* Keep it below the link */
+}
+
+#about-me-full {
+    margin-top: 10px;
+    transition: all 0.5s ease;
+}
+
+
+
+#expand-about-me, #collapse-about-me {
+    display: block;
+    margin-top: 10px;
+    color: #3498db;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    z-index: 1; /* Brings the link above the fade effect */
+}
+
+#expand-about-me:hover, #collapse-about-me:hover {
+    text-decoration: underline;
+}
+
+#about-me-full {
+    margin-top: 10px;
+    transition: all 0.5s ease;
+}
     </style>
 
     <script>
@@ -388,6 +446,28 @@ window.onclick = function(event) {
     var modal = document.getElementById("modal");
     if (event.target == modal) {
         closeModal();
+    }
+}
+</script>
+
+<script>
+function toggleAboutMe(event) {
+    event.preventDefault();
+    var fullText = document.getElementById("about-me-full");
+    var previewText = document.getElementById("about-me-preview");
+    var expandLink = document.getElementById("expand-about-me");
+    var collapseLink = document.getElementById("collapse-about-me");
+
+    if (fullText.style.display === "none") {
+        fullText.style.display = "block";
+        previewText.style.display = "none";
+        expandLink.style.display = "none";
+        collapseLink.style.display = "block";
+    } else {
+        fullText.style.display = "none";
+        previewText.style.display = "block";
+        expandLink.style.display = "block";
+        collapseLink.style.display = "none";
     }
 }
 </script>
@@ -438,6 +518,19 @@ window.onclick = function(event) {
 
         <!-- Main Content -->
         <div class="main-content">
+            <div class="about-me-section">
+                <p id="about-me-preview">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <a href="#" id="expand-about-me" onclick="toggleAboutMe(event)">Show More</a>
+                <p id="about-me-full" style="display: none;">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+                </p>
+                <a href="#" id="collapse-about-me" onclick="toggleAboutMe(event)" style="display: none;">Show Less</a>
+            </div>
             <!-- eLearning Sample 1 -->
             <div class="elearning-item">
                 <!-- eLearning Sample -->
