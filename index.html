@@ -292,14 +292,21 @@
 }
 
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 20px 10px;
-        padding-top: 120px; /* Push content below the header */
+    .header {
+        padding: 15px 10px; /* Adjust padding for mobile */
+        text-align: center; /* Ensure the header is centered */
     }
 
-    header h1, .header h2, .nav ul {
-        text-align: center; /* Center-align header text and navigation */
+    .header h1 {
+        font-size: 1.8em; /* Reduce font size for mobile */
+        word-wrap: break-word; /* Handle long titles */
+        margin: 0;
+    }
+
+    .header h2 {
+        font-size: 1em; /* Adjust subtitle size for mobile */
+        margin-top: 5px;
+        margin-bottom: 10px;
     }
 
     .nav ul {
@@ -310,24 +317,30 @@
     }
 
     .nav ul li {
-        margin: 0 10px; /* Adjust spacing between nav items */
+        margin: 0 8px; /* Adjust spacing between nav items */
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 20px 10px;
+        padding-top: 120px; /* Ensure content starts below header */
     }
 
     .sidebar {
-        display: none; /* Hide the sidebar on mobile */
+        display: none; /* Hide sidebar on mobile */
     }
 
     .main-content {
-        width: 100%; /* Take up full width on mobile */
+        width: 100%; /* Full width on mobile */
         margin-right: 0;
     }
 
     .project-section {
-        padding: 15px; /* Adjust padding for smaller screens */
+        padding: 15px; /* Adjust padding for mobile */
     }
 
     .modal-content {
-        width: 90%; /* Make modal content more compact on mobile */
+        width: 90%; /* Compact modal content for mobile */
         margin: 10% auto; /* Adjust modal positioning */
     }
 }
