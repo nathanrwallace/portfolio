@@ -293,18 +293,13 @@
 
 @media (max-width: 768px) {
     .header {
-        padding: 20px;
+        padding: 20px 15px; /* Adjusted padding */
         text-align: center;
+        box-sizing: border-box; /* Ensure consistent padding calculation */
     }
 
-    .header h1 {
-        font-size: 2em;
-        text-align: center;
-    }
-
-    .header h2 {
-        font-size: 1.2em;
-        margin-top: 5px;
+    .header h1, .header h2 {
+        margin: 0 auto; /* Centering margins */
         text-align: center;
     }
 
@@ -312,24 +307,20 @@
         padding: 0;
         margin: 10px auto;
         display: flex;
-        flex-wrap: wrap; /* Allow stacking */
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .nav ul li {
-        margin: 10px; /* Space between items */
-        flex: 1 1 100%; /* Allow items to stack */
+        margin: 5px 0;
+        flex: 1 1 100%; /* Stacks the items */
         text-align: center;
-    }
-
-    .sidebar {
-        display: none;
     }
 
     .container {
         flex-direction: column;
         padding: 20px 10px;
-        padding-top: 140px;
+        padding-top: 140px; /* Adjusted to prevent overlap with the header */
     }
 
     .main-content {
