@@ -299,23 +299,27 @@
 
     .header h1 {
         font-size: 2em;
+        text-align: center;
     }
 
     .header h2 {
         font-size: 1.2em;
         margin-top: 5px;
+        text-align: center;
     }
 
     .nav ul {
         padding: 0;
         margin: 10px auto;
         display: flex;
+        flex-wrap: wrap; /* Allow stacking */
         justify-content: center;
-        flex-wrap: wrap;
     }
 
     .nav ul li {
-        margin: 0 10px;
+        margin: 10px; /* Space between items */
+        flex: 1 1 100%; /* Allow items to stack */
+        text-align: center;
     }
 
     .sidebar {
@@ -331,19 +335,6 @@
     .main-content {
         width: 100%;
         margin-right: 0;
-    }
-
-    .nav ul li {
-        flex: 1 1 auto;
-        display: flex;
-        justify-content: center;
-    }
-
-    .nav ul {
-        flex-wrap: nowrap;
-        white-space: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
     }
 }
 
