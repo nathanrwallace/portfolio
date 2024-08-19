@@ -293,13 +293,19 @@
 
 @media (max-width: 768px) {
     .header {
-        padding: 20px 15px; /* Adjusted padding */
+        padding: 20px;
         text-align: center;
-        box-sizing: border-box; /* Ensure consistent padding calculation */
+        box-sizing: border-box;
     }
 
-    .header h1, .header h2 {
-        margin: 0 auto; /* Centering margins */
+    .header h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    .header h2 {
+        font-size: 1.2em;
+        margin-top: 5px;
         text-align: center;
     }
 
@@ -307,20 +313,24 @@
         padding: 0;
         margin: 10px auto;
         display: flex;
-        justify-content: center;
         flex-wrap: wrap;
+        justify-content: center;
     }
 
     .nav ul li {
-        margin: 5px 0;
-        flex: 1 1 100%; /* Stacks the items */
+        margin: 10px;
+        flex: 1 1 100%; 
         text-align: center;
+    }
+
+    .sidebar {
+        display: none; /* Ensures sidebar is out of layout */
     }
 
     .container {
         flex-direction: column;
         padding: 20px 10px;
-        padding-top: 140px; /* Adjusted to prevent overlap with the header */
+        padding-top: 140px; 
     }
 
     .main-content {
