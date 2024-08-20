@@ -292,28 +292,11 @@
 }
 
 @media (max-width: 768px) {
+    /* Header Styles */
     .header {
         padding: 20px;
         text-align: center;
         box-sizing: border-box;
-    }
-
-    .modal {
-        display: flex;
-        align-items: center; /* Center vertically */
-        justify-content: center; /* Center horizontally */
-    }
-
-    .modal-content {
-        width: 90%; /* Reduce width slightly for better mobile fit */
-        max-height: 90vh; /* Ensure modal content does not exceed 90% of the viewport height */
-        overflow-y: auto; /* Enable scrolling if content exceeds available space */
-        margin: 0; /* Remove any top or bottom margin */
-        padding: 20px; /* Add padding to keep content away from edges */
-    }
-
-    .modal-content iframe {
-        height: 70vh; /* Adjust iframe height to fit within the modal */
     }
 
     .header h1 {
@@ -327,6 +310,7 @@
         text-align: center;
     }
 
+    /* Navigation Styles */
     .nav ul {
         padding: 0;
         margin: 10px auto;
@@ -337,23 +321,45 @@
 
     .nav ul li {
         margin: 10px;
-        flex: 1 1 100%; 
+        flex: 1 1 100%;
         text-align: center;
     }
 
-    .sidebar {
-        display: none; /* Ensures sidebar is out of layout */
-    }
-
+    /* Container and Content Styles */
     .container {
         flex-direction: column;
         padding: 20px 10px;
-        padding-top: 140px; 
+        padding-top: 140px; /* Ensures content is pushed below header */
     }
 
     .main-content {
         width: 100%;
         margin-right: 0;
+    }
+
+    /* Sidebar Hidden on Mobile */
+    .sidebar {
+        display: none;
+    }
+
+    /* Modal Styles */
+    .modal {
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+        height: 100vh; /* Ensure modal takes full viewport height */
+    }
+
+    .modal-content {
+        width: 90%; /* Reduce width slightly for better mobile fit */
+        max-height: 90vh; /* Ensure modal content does not exceed 90% of the viewport height */
+        overflow-y: auto; /* Enable scrolling if content exceeds available space */
+        margin: 0; /* Remove any top or bottom margin */
+        padding: 20px; /* Add padding to keep content away from edges */
+    }
+
+    .modal-content iframe {
+        height: 70vh; /* Adjust iframe height to fit within the modal */
     }
 }
 
