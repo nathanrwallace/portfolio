@@ -299,11 +299,17 @@
     }
 
     .modal-content {
-        top: calc(20% + 80px); /* Adjusts the modal position to account for the header */
-        transform: translateY(0);
-        z-index: 1100; /* Ensure it appears above the header */
+        top: 10%; /* Reduces the top margin */
+        margin: 0 auto;
+        width: 90%; /* Slightly reduce width for better mobile fit */
+        max-height: 80vh; /* Ensures modal does not exceed 80% of the viewport height */
+        overflow-y: auto; /* Allows scrolling if content exceeds max height */
     }
 
+    .modal-content iframe {
+        height: 60vh; /* Adjust iframe height to fit within the modal */
+    }
+    
     .header h1 {
         font-size: 2em;
         text-align: center;
