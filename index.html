@@ -299,9 +299,13 @@
     }
 
     .about-me-section {
-        margin-top: 10px; /* Reduce margin at the top of the "About Me" section */
+        margin-top: 10px; /* Reduced margin to bring it closer to the header */
+        padding: 15px;
+        background-color: #f8f9f9; /* Subtle background tint */
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
     }
-    
+
     .header h1 {
         font-size: 1.4em; /* Smaller font size for mobile */
     }
@@ -341,16 +345,21 @@
     /* Container and Content Styles */
     .container {
         display: flex;
-        flex-direction: column; /* Ensure that content stacks vertically */
-        padding: 10px;
-        padding-top: 70px; /* Adjust padding based on header size */
+        flex-direction: column; /* Ensure content stacks vertically */
+        padding: 10px; /* Reduced padding for the entire container */
+        padding-top: 70px; /* Adjust padding based on the header size */
+        margin: 0; /* Remove any container margin */
     }
 
     .main-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
         width: 100%;
-        margin-right: 0;
-        margin-top: 0; /* Remove any default margin that may be adding space */
-
+        margin-top: 0; /* Ensure there's no extra margin at the top */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        min-height: 100vh; /* Ensures main content extends to full height */
     }
 
     /* Sidebar Hidden on Mobile */
