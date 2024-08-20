@@ -298,18 +298,24 @@
         box-sizing: border-box;
     }
 
+    .modal {
+        display: flex;
+        align-items: center; /* Center vertically */
+        justify-content: center; /* Center horizontally */
+    }
+
     .modal-content {
-        top: 10%; /* Reduces the top margin */
-        margin: 0 auto;
-        width: 90%; /* Slightly reduce width for better mobile fit */
-        max-height: 80vh; /* Ensures modal does not exceed 80% of the viewport height */
-        overflow-y: auto; /* Allows scrolling if content exceeds max height */
+        width: 90%; /* Reduce width slightly for better mobile fit */
+        max-height: 90vh; /* Ensure modal content does not exceed 90% of the viewport height */
+        overflow-y: auto; /* Enable scrolling if content exceeds available space */
+        margin: 0; /* Remove any top or bottom margin */
+        padding: 20px; /* Add padding to keep content away from edges */
     }
 
     .modal-content iframe {
-        height: 60vh; /* Adjust iframe height to fit within the modal */
+        height: 70vh; /* Adjust iframe height to fit within the modal */
     }
-    
+
     .header h1 {
         font-size: 2em;
         text-align: center;
