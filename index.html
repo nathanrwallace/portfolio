@@ -356,14 +356,14 @@
         display: flex;
         align-items: flex-start; /* Align to the top of the available space */
         justify-content: center;
-        padding-top: calc(20px + 80px); /* Add padding equal to header height + some margin */
+        padding-top: calc(20px + 80px); /* Adjust padding to account for header height */
         height: calc(100vh - 80px); /* Subtract header height from full viewport height */
         overflow-y: auto; /* Allow scrolling if content exceeds available space */
     }
 
     .modal-content {
         width: 90%; 
-        max-height: 80vh; /* Adjust to fit within available height */
+        max-height: 80vh; /* Ensure modal content does not exceed 80% of the viewport height */
         overflow-y: auto;
         padding: 20px;
     }
@@ -476,15 +476,16 @@ function openModal(url) {
     var modal = document.getElementById("modal");
     var iframe = document.getElementById("modal-iframe");
     iframe.src = url;
-    modal.style.display = "block";
-    document.querySelector('.modal-content').style.transform = 'translateY(0)';
+    modal.style.display = "block"; // Make the modal visible
+    modal.classList.add('active'); // Add the active class to trigger the styling
 }
 
 function closeModal() {
     var modal = document.getElementById("modal");
-    modal.style.display = "none";
+    modal.style.display = "none"; // Hide the modal
+    modal.classList.remove('active'); // Remove the active class when closing
     var iframe = document.getElementById("modal-iframe");
-    iframe.src = "";
+    iframe.src = ""; // Clear the iframe source
 }
 
 window.onclick = function(event) {
