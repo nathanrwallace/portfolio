@@ -486,6 +486,28 @@
     }
 </script>
 
+<script>
+    function isMobileDevice() {
+        return window.innerWidth <= 768; // Define the breakpoint for mobile
+    }
+
+    function getWHMISURL() {
+        if (isMobileDevice()) {
+            return "https://nathanrwallace.github.io/WHMIS-Mobile-Responsive/"; // Mobile version URL
+        } else {
+            return "https://nathanrwallace.github.io/WHMIS/"; // Desktop version URL
+        }
+    }
+
+    function loadWHMISELearningSample() {
+        var iframe = document.getElementById("whmis-iframe");
+        iframe.src = getWHMISURL();
+    }
+
+    // Load the correct version on page load and resize
+    window.onload = loadWHMISELearningSample;
+    window.onresize = loadWHMISELearningSample;
+</script>
 
 <script>
 function openModal(url) {
@@ -595,12 +617,11 @@ function toggleAboutMe(event) {
             </div>
             <!-- eLearning Sample 1 -->
             <div class="elearning-item">
-                <!-- eLearning Sample -->
                 <div class="iframe-container">
-                    <div class="cover" onclick="openModal('https://nathanrwallace.github.io/WHMIS/')">
+                    <div class="cover" id="whmis-cover" onclick="openModal(getWHMISURL())">
                         <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/WHMIS_Cover_Image.jpeg" alt="WHMIS Training">
                     </div>
-                    <iframe src="https://nathanrwallace.github.io/WHMIS/" allowfullscreen></iframe>
+                    <iframe id="whmis-iframe" allowfullscreen></iframe>
                 </div>
             </div>
             
