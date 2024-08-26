@@ -412,21 +412,27 @@
 
 
 .about-me-section {
-    position: relative;
-    margin-bottom: 20px;
-    padding: 15px;
     background-color: #f8f9f9; /* Subtle background tint */
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    margin-bottom: 20px;
+    font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
 }
 
+.about-me-section p {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #333;
+    text-align: justify;
+    line-height: 1.6;
+}
 
 #about-me-preview {
-    position: relative;
-    max-height: 4.5em; /* Adjust based on desired preview height */
+    max-height: 6em; /* Adjusted to show more text before fading */
     overflow: hidden;
-    background-color: #f8f9f9; /* Match the section background */
-
+    position: relative;
+    background-color: #f8f9f9;
 }
 
 #about-me-preview::after {
@@ -436,16 +442,14 @@
     left: 0;
     right: 0;
     height: 2em;
-    background: linear-gradient(to bottom, rgba(248, 249, 249, 0), rgba(248, 249, 249, 1)); /* Match the preview background */
+    background: linear-gradient(to bottom, rgba(248, 249, 249, 0), rgba(248, 249, 249, 1)); /* Fade effect */
     pointer-events: none; /* Ensures it doesn't block clicks */
-    z-index: 0; /* Keep it below the link */
 }
 
 #about-me-full {
     margin-top: 10px;
     transition: all 0.5s ease;
 }
-
 
 
 #expand-about-me, #collapse-about-me {
@@ -455,14 +459,12 @@
     text-align: center;
     font-weight: 600;
     text-decoration: none;
-    position: relative;
-    z-index: 1; /* Brings the link above the fade effect */
 }
+
 
 #expand-about-me:hover, #collapse-about-me:hover {
     text-decoration: underline;
 }
-
 #about-me-full {
     margin-top: 10px;
     transition: all 0.5s ease;
@@ -543,15 +545,15 @@ function toggleAboutMe(event) {
     var collapseLink = document.getElementById("collapse-about-me");
 
     if (fullText.style.display === "none") {
-        fullText.style.display = "block";
-        previewText.style.display = "none";
-        expandLink.style.display = "none";
-        collapseLink.style.display = "block";
+        fullText.style.display = "block";  // Show full content
+        previewText.style.display = "none";  // Hide preview
+        expandLink.style.display = "none";  // Hide "Show More" link
+        collapseLink.style.display = "block";  // Show "Show Less" link
     } else {
-        fullText.style.display = "none";
-        previewText.style.display = "block";
-        expandLink.style.display = "block";
-        collapseLink.style.display = "none";
+        fullText.style.display = "none";  // Hide full content
+        previewText.style.display = "block";  // Show preview
+        expandLink.style.display = "block";  // Show "Show More" link
+        collapseLink.style.display = "none";  // Hide "Show Less" link
     }
 }
 </script>
@@ -603,17 +605,24 @@ function toggleAboutMe(event) {
         <!-- Main Content -->
         <div class="main-content">
             <div class="about-me-section">
-                <p id="about-me-preview">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+                <div id="about-me-preview">
+                    <p class="about-me-text">
+                        As a Senior Learning & Development Strategist, I excel at designing impactful learning experiences that drive business results. With over a decade of experience across diverse industries, I specialize in creating and implementing eLearning programs, optimizing onboarding processes, and leading cross-functional initiatives that enhance learning outcomes and operational efficiency.
+                    </p>
+                </div>
                 <a href="#" id="expand-about-me" onclick="toggleAboutMe(event)">Show More</a>
-                <p id="about-me-full" style="display: none;">
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-                </p>
-                <a href="#" id="collapse-about-me" onclick="toggleAboutMe(event)" style="display: none;">Show Less</a>
+                <div id="about-me-full" style="display: none;">
+                    <p class="about-me-text">
+                        As a Senior Learning & Development Strategist, I excel at designing impactful learning experiences that drive business results. With over a decade of experience across diverse industries, I specialize in creating and implementing eLearning programs, optimizing onboarding processes, and leading cross-functional initiatives that enhance learning outcomes and operational efficiency.
+                    </p>
+                    <p class="about-me-text">
+                        In my current role, I've spearheaded the successful transition to a new Learning Experience Platform for 6,000+ employees, developed training programs that reduced hiring gaps and increased productivity, and implemented cost-saving initiatives that have improved data integrity and employee recognition processes. My unique ability to grasp complex systems quickly allows me to provide innovative solutions, often bridging gaps outside of my primary role.
+                    </p>
+                    <p class="about-me-text">
+                        I am known for my collaborative approach, problem-solving skills, and the ability to translate strategic goals into practical, engaging learning solutions. Whether it's building new curricula, guiding teams through change, or creating systems that simplify complex tasks, I thrive on making learning accessible, impactful, and aligned with business objectives.
+                    </p>
+                    <a href="#" id="collapse-about-me" onclick="toggleAboutMe(event)" style="display: block; margin-top: 10px;">Show Less</a>
+                </div>
             </div>
             <!-- eLearning Sample 1 -->
             <div class="elearning-item">
