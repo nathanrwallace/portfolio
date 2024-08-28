@@ -31,6 +31,20 @@
             z-index: 1000;
         }
 
+        .bio {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Evenly distribute content */
+            align-items: center; /* Center align items */
+            height: 100%; /* Ensure the bio container takes up the full height of the sidebar */
+            padding: 20px; /* Add padding for spacing inside the sidebar */
+        }
+
+        .bio p {
+            text-align: justify;
+            hyphens: auto; /* Enable hyphenation */
+        }
+
         .header h1 {
             margin: 0;
             font-size: 2.5em;
@@ -81,6 +95,8 @@
             align-items: flex-start;
         }
 
+       
+
         /* Sidebar */
         .sidebar {
             background-color: #2C3E50;
@@ -94,6 +110,37 @@
             min-height: 100vh; /* Ensures it extends to at least the full viewport height */
             position: sticky;
             top: 120px; /* Keep below header */
+        }
+
+        .resume-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #34495E; /* A subtle, darker color to differentiate from the sidebar */
+            color: #ECF0F1; /* Light text color */
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px; /* Rounded button */
+            border: 2px solid #ECF0F1; /* Add a subtle border to distinguish the button */
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+            margin-top: 20px; /* Add margin to ensure spacing from the text */
+        }
+
+        .resume-link:hover {
+            background-color: #E67E22; /* Hover effect color */
+            border-color: #E67E22; /* Change border color on hover */
+        }
+
+        .resume-link:active {
+            background-color: #2C3E50; /* Active state color */
+        }
+        .sidebar-image {
+            width: 80%; /* Control the size of the image relative to the container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Circular image */
+            margin-bottom: 15px; /* Space between the image and the text */
+            max-width: 150px; /* Control the maximum size of the image */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
         .sidebar h2 {
@@ -439,14 +486,18 @@
 
 
 
-.about-me-section {
-    background-color: #f8f9f9; /* Subtle background tint */
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
-    margin-bottom: 20px;
-    font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
-}
+        .about-me-section {
+            background-color: #f8f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensure even vertical spacing */
+            height: 100%; /* Let the container take up the full height */
+        }
 
 .about-me-section p {
     margin-bottom: 15px;
@@ -457,42 +508,39 @@
 }
 
 #about-me-preview {
-    max-height: 6em; /* Adjusted to show more text before fading */
+    max-height: 8em; /* Adjusted to show more text before fading */
     overflow: hidden;
     position: relative;
     background-color: #f8f9f9;
+    margin-bottom: 0; /* Ensure there's no gap below the text */
+    padding-bottom: 0; /* Remove any padding below the text */
 }
 
 #about-me-preview::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: -20px; /* Extend fade below the container */
     left: 0;
     right: 0;
-    height: 2em;
-    background: linear-gradient(to bottom, rgba(248, 249, 249, 0), rgba(248, 249, 249, 1)); /* Fade effect */
-    pointer-events: none; /* Ensures it doesn't block clicks */
+    height: 4em; /* Increase the height of the fade effect for a smoother transition */
+    background: linear-gradient(to bottom, rgba(248, 249, 249, 0) 0%, rgba(248, 249, 249, 0.5) 50%, rgba(248, 249, 249, 1) 100%); /* Gradual fade */
+    pointer-events: none; /* Ensure it doesn't block clicks */
 }
-
-#about-me-full {
-    margin-top: 10px;
-    transition: all 0.5s ease;
-}
-
 
 #expand-about-me, #collapse-about-me {
     display: block;
-    margin-top: 10px;
+    margin-top: 0; /* Ensure there is no gap above the button */
     color: #3498db;
     text-align: center;
     font-weight: 600;
     text-decoration: none;
+    padding-top: 10px; /* Add padding to move the button slightly down */
 }
-
 
 #expand-about-me:hover, #collapse-about-me:hover {
     text-decoration: underline;
 }
+
 #about-me-full {
     margin-top: 10px;
     transition: all 0.5s ease;
@@ -626,7 +674,11 @@ function toggleAboutMe(event) {
         <aside class="sidebar">
             <div class="bio">
                 <h2>About Me</h2>
-                <p>Write a brief bio about yourself here. Highlight your key skills, experiences, and what makes you unique.</p>
+                <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/Profile_Photo_NW_Cropped.png" alt="Your Name" class="sidebar-image">
+                <p>
+                    I’m a Senior Learning & Development Strategist with over a decade of experience. I specialize in designing impactful learning experiences, optimizing onboarding processes, and leading initiatives that drive operational efficiency.
+                </p>
+                <a href="resume.pdf" target="_blank" class="resume-link">View Resume</a>
             </div>
         </aside>
 
@@ -634,6 +686,7 @@ function toggleAboutMe(event) {
         <div class="main-content">
             <div class="about-me-section">
                 <div id="about-me-preview">
+                    <h4>Professional Overview</h4>
                     <p class="about-me-text">
                         As a Senior Learning & Development Strategist, I excel at designing impactful learning experiences that drive business results. With over a decade of experience across diverse industries, I specialize in creating and implementing eLearning programs, optimizing onboarding processes, and leading cross-functional initiatives that enhance learning outcomes and operational efficiency.
                     </p>
