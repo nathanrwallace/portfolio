@@ -650,6 +650,7 @@
     window.onresize = loadWHMISELearningSample;
 </script>
 
+
 <script>
 function openModal(url) {
     var modal = document.getElementById("modal");
@@ -674,6 +675,18 @@ window.onclick = function(event) {
     }
 }
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var aboutMeButton = document.querySelector('.mobile-links a[href="#about"]');
+        var bioSection = document.getElementById('bio-section');
+    
+        aboutMeButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+            bioSection.classList.toggle('active'); // Toggle the 'active' class
+        });
+    });
+    </script>
 
 <script>
 function toggleAboutMe(event) {
