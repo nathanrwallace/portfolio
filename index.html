@@ -364,18 +364,21 @@
         display: block;
         margin-top: 10px;
         font-size: 0.9em;
-        color: #ECF0F1;
+        color: #ECF0F1; /* Match the header text color */
+        text-align: center;
     }
 
     .mobile-links a {
-        color: #E67E22;
+        color: #ECF0F1; /* Match the header text color */
         text-decoration: none;
         font-weight: 600;
         margin: 0 5px;
     }
 
     .mobile-links a:hover,
-    .mobile-links a:focus {
+    .mobile-links a:focus,
+    .mobile-links a:active {
+        color: #E67E22; /* Orange color on hover or tap */
         text-decoration: underline;
     }
 
