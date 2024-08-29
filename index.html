@@ -21,7 +21,7 @@
         .header {
             width: 100%;
             background-color: #2C3E50;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
             color: #ECF0F1;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -44,6 +44,11 @@
             text-align: justify;
             hyphens: auto; /* Enable hyphenation */
         }
+
+        /* Hide the mobile links by default */
+        .mobile-links {
+            display: none;
+}
 
         .header h1 {
             margin: 0;
@@ -158,7 +163,7 @@
         /* Main Content */
         .main-content {
             background: white;
-            padding: 20px;
+            padding:0px;
             border-radius: 10px;
             width: 75%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -355,6 +360,27 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
     }
 
+    @media (max-width: 768px) {
+    .mobile-links {
+        display: block;
+        margin-top: 10px;
+        font-size: 0.9em;
+        color: #ECF0F1;
+    }
+
+    .mobile-links a {
+        color: #E67E22;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 0 5px;
+    }
+
+    .mobile-links a:hover,
+    .mobile-links a:focus {
+        text-decoration: underline;
+    }
+}
+
     .header h1 {
         font-size: 1.4em; /* Smaller font size for mobile */
     }
@@ -486,18 +512,26 @@
 
 
 
-        .about-me-section {
-            background-color: #f8f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Ensure even vertical spacing */
-            height: 100%; /* Let the container take up the full height */
-        }
+.about-me-section {
+    background-color: #f8f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure even vertical spacing */
+    height: 100%; /* Let the container take up the full height */
+}
+
+.about-me-text {
+    margin-top: 0; /* Ensure no extra margin at the top of the text */
+}
+
+.about-me-section h3 {
+    margin-bottom: 5px; /* Reduce the space below the heading */
+}
 
 .about-me-section p {
     margin-bottom: 15px;
@@ -508,7 +542,7 @@
 }
 
 #about-me-preview {
-    max-height: 8em; /* Adjusted to show more text before fading */
+    max-height: 6em; /* Adjusted to show more text before fading */
     overflow: hidden;
     position: relative;
     background-color: #f8f9f9;
@@ -519,22 +553,21 @@
 #about-me-preview::after {
     content: "";
     position: absolute;
-    bottom: -20px; /* Extend fade below the container */
+    bottom: 0; /* Extend fade below the container */
     left: 0;
     right: 0;
-    height: 4em; /* Increase the height of the fade effect for a smoother transition */
-    background: linear-gradient(to bottom, rgba(248, 249, 249, 0) 0%, rgba(248, 249, 249, 0.5) 50%, rgba(248, 249, 249, 1) 100%); /* Gradual fade */
+    height: 4.5em; /* Increase the height of the fade effect for a smoother transition */
+    background: linear-gradient(to bottom, rgba(248, 249, 249, 0) 0%, rgba(248, 249, 249, 1) 70%);
     pointer-events: none; /* Ensure it doesn't block clicks */
 }
 
 #expand-about-me, #collapse-about-me {
     display: block;
-    margin-top: 0; /* Ensure there is no gap above the button */
+    margin-top: 0px; /* Ensure there is no gap above the button */
     color: #3498db;
     text-align: center;
     font-weight: 600;
     text-decoration: none;
-    padding-top: 10px; /* Add padding to move the button slightly down */
 }
 
 #expand-about-me:hover, #collapse-about-me:hover {
@@ -542,7 +575,6 @@
 }
 
 #about-me-full {
-    margin-top: 10px;
     transition: all 0.5s ease;
 }
     </style>
@@ -652,14 +684,11 @@ function toggleAboutMe(event) {
     <header class="header">
         <h1>Your Name's Portfolio</h1>
         <h2>Senior Learning & Development Strategist</h2>
-        <nav class="nav">
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#elearning">eLearning Samples</a></li>
-                <li><a href="#projects">Work Projects</a></li>
-                <li><a href="resume.pdf" target="_blank">Resume</a></li>
-            </ul>
-        </nav>
+        <!-- Add these links for mobile version -->
+        <div class="mobile-links">
+            <a href="#about">About Me</a> |
+            <a href="resume.pdf" target="_blank">Resume</a>
+        </div>
     </header>
 
     <div id="modal" class="modal">
@@ -685,8 +714,8 @@ function toggleAboutMe(event) {
         <!-- Main Content -->
         <div class="main-content">
             <div class="about-me-section">
+                <h3>Professional Overview</h3>
                 <div id="about-me-preview">
-                    <h4>Professional Overview</h4>
                     <p class="about-me-text">
                         As a Senior Learning & Development Strategist, I excel at designing impactful learning experiences that drive business results. With over a decade of experience across diverse industries, I specialize in creating and implementing eLearning programs, optimizing onboarding processes, and leading cross-functional initiatives that enhance learning outcomes and operational efficiency.
                     </p>
