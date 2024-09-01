@@ -397,9 +397,9 @@
 }
 
 .about-me-modal.open {
+    display: block; /* Ensure the modal is visible */
     left: 0; /* Slide in to be fully visible */
 }
-
 
 .about-me-modal-content {
     position: relative;
@@ -731,12 +731,20 @@ function toggleAboutMe(event) {
 </script>
 
 <script>
-    function openAboutMeModal() {
-    document.getElementById("aboutMeModal").classList.add("open");
+function openAboutMeModal() {
+    var modal = document.getElementById("aboutMeModal");
+    modal.style.display = "block"; // Make sure it's visible
+    setTimeout(function() {
+        modal.classList.add("open");
+    }, 10); // Small delay to ensure the transition is applied
 }
 
 function closeAboutMeModal() {
-    document.getElementById("aboutMeModal").classList.remove("open");
+    var modal = document.getElementById("aboutMeModal");
+    modal.classList.remove("open");
+    setTimeout(function() {
+        modal.style.display = "none";
+    }, 300); // Wait for the transition to complete before hiding
 }
 </script>
 
