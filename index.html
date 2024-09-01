@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name's Portfolio</title>
+    <title>Nathan Wallace's Portfolio</title>
     <style>
         /* General Body Styles */
         body {
@@ -21,7 +21,7 @@
         .header {
             width: 100%;
             background-color: #2C3E50;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
             color: #ECF0F1;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -34,19 +34,15 @@
         .bio {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
+            justify-content: space-between; /* Evenly distribute content */
+            align-items: center; /* Center align items */
+            height: 100%; /* Ensure the bio container takes up the full height of the sidebar */
+            padding: 20px; /* Add padding for spacing inside the sidebar */
         }
 
         .bio p {
             text-align: justify;
-            hyphens: auto;
-        }
-
-        /* Hide the mobile links by default */
-        .mobile-links {
-            display: none;
+            hyphens: auto; /* Enable hyphenation */
         }
 
         .header h1 {
@@ -90,14 +86,16 @@
         /* Main Layout */
         .container {
             display: flex;
-            flex: 1;
+            flex: 1; /* Ensures container takes full remaining height */
             max-width: 1200px;
             width: 100%;
-            margin: 120px auto 0;
+            margin: 120px auto 0; /* Margin to push content below header */
             padding: 20px;
             box-sizing: border-box;
             align-items: flex-start;
         }
+
+       
 
         /* Sidebar */
         .sidebar {
@@ -109,41 +107,40 @@
             width: 25%;
             margin-right: 20px;
             box-sizing: border-box;
-            min-height: 100vh;
+            min-height: 100vh; /* Ensures it extends to at least the full viewport height */
             position: sticky;
-            top: 120px;
+            top: 120px; /* Keep below header */
         }
 
         .resume-link {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #34495E;
-            color: #ECF0F1;
+            background-color: #34495E; /* A subtle, darker color to differentiate from the sidebar */
+            color: #ECF0F1; /* Light text color */
             text-decoration: none;
             font-weight: 600;
-            border-radius: 25px;
-            border: 2px solid #ECF0F1;
+            border-radius: 25px; /* Rounded button */
+            border: 2px solid #ECF0F1; /* Add a subtle border to distinguish the button */
             transition: background-color 0.3s ease, border-color 0.3s ease;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 20px; /* Add margin to ensure spacing from the text */
         }
 
         .resume-link:hover {
-            background-color: #E67E22;
-            border-color: #E67E22;
+            background-color: #E67E22; /* Hover effect color */
+            border-color: #E67E22; /* Change border color on hover */
         }
 
         .resume-link:active {
-            background-color: #2C3E50;
+            background-color: #2C3E50; /* Active state color */
         }
-
         .sidebar-image {
-            width: 80%;
-            height: auto;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            max-width: 150px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Control the size of the image relative to the container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Circular image */
+            margin-bottom: 15px; /* Space between the image and the text */
+            max-width: 150px; /* Control the maximum size of the image */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
         .sidebar h2 {
@@ -161,40 +158,12 @@
         /* Main Content */
         .main-content {
             background: white;
-            padding: 0px;
+            padding:0px;
             border-radius: 10px;
             width: 75%;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
-            min-height: 100vh;
-        }
-
-        /* Bio section outside sidebar */
-        #bio-section {
-            position: fixed;
-            top: 50%;
-            left: -350px;
-            width: 300px;
-            max-height: 400px;
-            background-color: #2C3E50;
-            color: #ECF0F1;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transform: translateY(-50%);
-            transition: left 0.3s ease, opacity 0.3s ease;
-            z-index: 2000;
-            opacity: 0;
-        }
-
-        /* Show the bio-section when active */
-        #bio-section.active {
-            left: 20px;
-            opacity: 1;
+            min-height: 100vh; /* Ensures main content extends to full height */
         }
 
         /* eLearning Section */
@@ -242,7 +211,7 @@
             cursor: pointer;
             z-index: 10;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ensure text visibility */
         }
 
         .cover img {
@@ -257,343 +226,331 @@
             visibility: hidden;
         }
 
-        /* Modal container, initially hidden */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
+/* Modal container, initially hidden */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
 
-        @keyframes fadeInScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 800px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
-            transform: translateY(-50px);
-            transition: transform 0.3s ease;
-            border-radius: 10px;
-            animation: fadeInScale 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-        }
 
-        .modal-content iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            border-radius: 10px;
-        }
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50px);
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+    animation: fadeInScale 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
 
-        /* Close button */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
+.modal-content iframe {
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    border: none;
+    border-radius: 10px;
+}
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
         /* Expandable Work Project Section */
-        .project-section {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 15px solid #5DADE2;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-            position: relative;
-        }
+    .project-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 15px solid #5DADE2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    position: relative; /* Needed for tooltip positioning */
+}
 
-        .project-section:hover::after {
-            content: "Click to read the full details";
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.75em;
-            white-space: nowrap;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
+.project-section:hover::after {
+    content: "Click to read the full details";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.75em;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
 
-        .project-section:hover::after {
-            opacity: 1;
-        }
+.project-section:hover::after {
+    opacity: 1;
+}
 
-        .project-section:hover {
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            border-left-color: #2C3E50;
-        }
+.project-section:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    border-left-color: #2C3E50;
+}
 
-        .project-section h3 {
-            margin: 0;
-            font-size: 1.4em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
+.project-section h3 {
+    margin: 0;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Positioning for the tooltip */
+}
+.expand-icon {
+    font-size: 1.4em;
+    margin-left: 10px;
+    position: relative;
+}
 
-        .expand-icon {
-            font-size: 1.4em;
-            margin-left: 10px;
-            position: relative;
-        }
+@media (max-width: 768px) {
+    /* Header styles */
+    .header {
+        padding: 10px 5px; /* Reduced padding for smaller height */
+        text-align: center;
+    }
 
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px 5px;
-                text-align: center;
-            }
+    .about-me-section {
+        margin-top: 20px; /* Reduced margin to bring it closer to the header */
+        padding: 15px;
+        background-color: #f8f9f9; /* Subtle background tint */
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    }
 
-            .about-me-section {
-                margin-top: 20px;
-                padding: 15px;
-                background-color: #f8f9f9;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            }
+    .header h1 {
+        font-size: 1.4em; /* Smaller font size for mobile */
+    }
 
-            .mobile-links {
-                display: block;
-                margin-top: 10px;
-                font-size: 0.9em;
-                color: #ECF0F1;
-                text-align: center;
-            }
+    .header h2 {
+        font-size: 0.9em; /* Adjust secondary header size */
+        margin-top: 5px;
+    }
 
-            .mobile-links a {
-                color: #ECF0F1;
-                text-decoration: none;
-                font-weight: 600;
-                margin: 0 5px;
-            }
+    /* Navigation styles */
+    .nav ul {
+        padding: 0;
+        margin: 10px auto;
+        display: flex;
+        flex-wrap: nowrap; /* Prevent wrapping to keep them in one row */
+        justify-content: space-between; /* Distribute items evenly */
+        align-items: center;
+    }
 
-            .mobile-links a:hover,
-            .mobile-links a:focus,
-            .mobile-links a:active {
-                color: #E67E22;
-            }
-        }
+    .nav ul li {
+        margin: 0; /* Remove margin to fit all items */
+        flex: 1; /* All items take up equal width */
+        text-align: center;
+    }
 
-        .header h1 {
-            font-size: 1.4em;
-        }
+    .nav ul li a {
+        display: inline-block;
+        font-size: 0.75em; /* Smaller font size */
+        line-height: 1em;
+    }
 
-        .header h2 {
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
+    /* Stack text vertically */
+    .nav ul li a span {
+        display: block; /* Stack words vertically */
+    }
 
-        .nav ul {
-            padding: 0;
-            margin: 10px auto;
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            align-items: center;
-        }
+    /* Container and Content Styles */
+    .container {
+        display: flex;
+        flex-direction: column; /* Ensure content stacks vertically */
+        padding: 10px; /* Reduced padding for the entire container */
+        padding-top: 70px; /* Adjust padding based on the header size */
+        margin: 0; /* Remove any container margin */
+    }
 
-        .nav ul li {
-            margin: 0;
-            flex: 1;
-            text-align: center;
-        }
+    .main-content {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 100%;
+        margin-top: 0; /* Ensure there's no extra margin at the top */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        min-height: 100vh; /* Ensures main content extends to full height */
+    }
 
-        .nav ul li a {
-            display: inline-block;
-            font-size: 0.75em;
-            line-height: 1em;
-        }
+    /* Sidebar Hidden on Mobile */
+    .sidebar {
+        display: none;
+    }
 
-        .nav ul li a span {
-            display: block;
-        }
+    /* Modal Styles */
+    .modal.active { 
+        display: flex;
+        align-items: flex-start; /* Align to the top of the available space */
+        justify-content: center;
+        padding-top: calc(20px + 80px); /* Adjust padding to account for header height */
+        height: calc(100vh - 80px); /* Subtract header height from full viewport height */
+        overflow-y: auto; /* Allow scrolling if content exceeds available space */
+    }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            padding-top: 70px;
-            margin: 0;
-        }
+    .modal-content {
+        width: 90%; 
+        max-height: 80vh; /* Ensure modal content does not exceed 80% of the viewport height */
+        overflow-y: auto;
+        padding: 20px;
+    }
 
-        .main-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 100%;
-            margin-top: 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-            min-height: 100vh;
-        }
+    .modal-content iframe {
+        height: 60vh; /* Adjust iframe height to fit within modal content */
+    }
+}
 
-        .sidebar {
-            display: none;
-        }
+/* Portrait mode (default for most phones) */
+@media screen and (orientation: portrait) {
+    .modal-content {
+        width: 90%; 
+        max-height: 80vh; /* Ensure modal content does not exceed 80% of the viewport height */
+        padding: 20px;
+    }
 
-        .modal.active {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            padding-top: calc(20px + 80px);
-            height: calc(100vh - 80px);
-            overflow-y: auto;
-        }
+    .modal-content iframe {
+        height: 60vh; /* Adjust iframe height to fit within modal content */
+    }
+}
 
-        .modal-content {
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 20px;
-        }
+/* Landscape mode */
+@media screen and (orientation: landscape) {
+    .modal-content {
+        width: 80%; 
+        max-height: 70vh; /* Adjust height to accommodate landscape mode */
+        padding: 20px;
+    }
 
-        .modal-content iframe {
-            height: 60vh;
-        }
+    .modal-content iframe {
+        height: 50vh; /* Adjust iframe height to fit within modal content in landscape */
+    }
+}
 
-        /* Portrait mode (default for most phones) */
-        @media screen and (orientation: portrait) {
-            .modal-content {
-                width: 90%;
-                max-height: 80vh;
-                padding: 20px;
-            }
+.expand-text {
+    font-size: 0.8em;
+    margin-left: 5px;
+    color: #5dade2;
+}
 
-            .modal-content iframe {
-                height: 60vh;
-            }
-        }
 
-        /* Landscape mode */
-        @media screen and (orientation: landscape) {
-            .modal-content {
-                width: 80%;
-                max-height: 70vh;
-                padding: 20px;
-            }
+.project-section h3::after {
+    color: #5DADE2; /* Update expand icon color */
+}
 
-            .modal-content iframe {
-                height: 50vh;
-            }
-        }
 
-        .expand-text {
-            font-size: 0.8em;
-            margin-left: 5px;
-            color: #5dade2;
-        }
-
-        .project-section h3::after {
-            color: #5DADE2;
-        }
-
-        .project-content {
-            margin-top: 15px;
-        }
+.project-content {
+    margin-top: 15px;
+}
 
         footer p {
             margin: 0;
         }
 
-        .about-me-section {
-            background-color: #f8f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
 
-        .about-me-text {
-            margin-top: 0;
-        }
 
-        .about-me-section h3 {
-            margin-bottom: 5px;
-        }
+.about-me-section {
+    background-color: #f8f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure even vertical spacing */
+    height: 100%; /* Let the container take up the full height */
+}
 
-        .about-me-section p {
-            margin-bottom: 15px;
-            font-size: 1em;
-            color: #333;
-            text-align: justify;
-            line-height: 1.6;
-        }
+.about-me-text {
+    margin-top: 0; /* Ensure no extra margin at the top of the text */
+}
 
-        #about-me-preview {
-            max-height: 6em;
-            overflow: hidden;
-            position: relative;
-            background-color: #f8f9f9;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
+.about-me-section h3 {
+    margin-bottom: 5px; /* Reduce the space below the heading */
+}
 
-        #about-me-preview::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 4.5em;
-            background: linear-gradient(to bottom, rgba(248, 249, 249, 0) 0%, rgba(248, 249, 249, 1) 70%);
-            pointer-events: none;
-        }
+.about-me-section p {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #333;
+    text-align: justify;
+    line-height: 1.6;
+}
 
-        #expand-about-me, #collapse-about-me {
-            display: block;
-            margin-top: 0px;
-            color: #3498db;
-            text-align: center;
-            font-weight: 600;
-            text-decoration: none;
-        }
+#about-me-preview {
+    max-height: 5em; /* Adjusted to show more text before fading */
+    overflow: hidden;
+    position: relative;
+    background-color: #f8f9f9;
+    margin-bottom: 0; /* Ensure there's no gap below the text */
+    padding-bottom: 0; /* Remove any padding below the text */
+}
 
-        #expand-about-me:hover, #collapse-about-me:hover {
-            text-decoration: underline;
-        }
+#about-me-preview::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Extend fade below the container */
+    left: 0;
+    right: 0;
+    height: 5em; /* Increase the height of the fade effect for a smoother transition */
+    background: linear-gradient(to bottom, rgba(248, 249, 249, 0) 0%, rgba(248, 249, 249, 0.5) 50%, rgba(248, 249, 249, 1) 100%); /* Gradual fade */
+    pointer-events: none; /* Ensure it doesn't block clicks */
+}
 
-        #about-me-full {
-            transition: all 0.5s ease;
-        }
+#expand-about-me, #collapse-about-me {
+    display: block;
+    margin-top: 10px; /* Ensure there is no gap above the button */
+    color: #3498db;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#expand-about-me:hover, #collapse-about-me:hover {
+    text-decoration: underline;
+}
+
+#about-me-full {
+    transition: all 0.5s ease;
+}
     </style>
 
     <script>
@@ -602,123 +559,105 @@
         }
     </script>
 
-    <script>
-        function toggleProject(element) {
-            var content = element.querySelector('.project-content');
-            if (content.style.display === "none" || content.style.display === "") {
-                content.style.display = "block";
-            } else {
-                content.style.display = "none";
-            }
+<script>
+    function toggleProject(element) {
+        var content = element.querySelector('.project-content');
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
         }
-    </script>
+    }
+</script>
 
-    <script>
-        function isMobileDevice() {
-            return window.innerWidth <= 768;
+<script>
+    function isMobileDevice() {
+        return window.innerWidth <= 768; // Define the breakpoint for mobile
+    }
+
+    function getWHMISURL() {
+        if (isMobileDevice()) {
+            return "https://nathanrwallace.github.io/WHMIS-Mobile-Responsive/"; // Mobile version URL
+        } else {
+            return "https://nathanrwallace.github.io/WHMIS/"; // Desktop version URL
         }
+    }
 
-        function getWHMISURL() {
-            if (isMobileDevice()) {
-                return "https://nathanrwallace.github.io/WHMIS-Mobile-Responsive/";
-            } else {
-                return "https://nathanrwallace.github.io/WHMIS/";
-            }
-        }
+    function loadWHMISELearningSample() {
+        var iframe = document.getElementById("whmis-iframe");
+        iframe.src = getWHMISURL();
+    }
 
-        function loadWHMISELearningSample() {
-            var iframe = document.getElementById("whmis-iframe");
-            iframe.src = getWHMISURL();
-        }
+    // Load the correct version on page load and resize
+    window.onload = loadWHMISELearningSample;
+    window.onresize = loadWHMISELearningSample;
+</script>
 
-        window.onload = loadWHMISELearningSample;
-        window.onresize = loadWHMISELearningSample;
-    </script>
+<script>
+function openModal(url) {
+    var modal = document.getElementById("modal");
+    var iframe = document.getElementById("modal-iframe");
+    iframe.src = url;
+    modal.style.display = "block"; // Make the modal visible
+    modal.classList.add('active'); // Add the active class to trigger the styling
+}
 
-    <script>
-        function openModal(url) {
-            var modal = document.getElementById("modal");
-            var iframe = document.getElementById("modal-iframe");
-            iframe.src = url;
-            modal.style.display = "block";
-            modal.classList.add('active');
-        }
+function closeModal() {
+    var modal = document.getElementById("modal");
+    modal.style.display = "none"; // Hide the modal
+    modal.classList.remove('active'); // Remove the active class when closing
+    var iframe = document.getElementById("modal-iframe");
+    iframe.src = ""; // Clear the iframe source
+}
 
-        function closeModal() {
-            var modal = document.getElementById("modal");
-            modal.style.display = "none";
-            modal.classList.remove('active');
-            var iframe = document.getElementById("modal-iframe");
-            iframe.src = "";
-        }
+window.onclick = function(event) {
+    var modal = document.getElementById("modal");
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
 
-        window.onclick = function(event) {
-            var modal = document.getElementById("modal");
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
+<script>
+function toggleAboutMe(event) {
+    event.preventDefault();
+    var fullText = document.getElementById("about-me-full");
+    var previewText = document.getElementById("about-me-preview");
+    var expandLink = document.getElementById("expand-about-me");
+    var collapseLink = document.getElementById("collapse-about-me");
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var aboutMeButton = document.querySelector('.mobile-links a[href="#about"]');
-            var bioSection = document.getElementById('bio-section');
-
-            if (aboutMeButton && bioSection) {
-                aboutMeButton.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    bioSection.classList.toggle('active');
-                });
-            }
-        });
-    </script>
-
-    <script>
-        function toggleAboutMe(event) {
-            event.preventDefault();
-            var fullText = document.getElementById("about-me-full");
-            var previewText = document.getElementById("about-me-preview");
-            var expandLink = document.getElementById("expand-about-me");
-            var collapseLink = document.getElementById("collapse-about-me");
-
-            if (fullText.style.display === "none") {
-                fullText.style.display = "block";
-                previewText.style.display = "none";
-                expandLink.style.display = "none";
-                collapseLink.style.display = "block";
-            } else {
-                fullText.style.display = "none";
-                previewText.style.display = "block";
-                expandLink.style.display = "block";
-                collapseLink.style.display = "none";
-            }
-        }
-    </script>
+    if (fullText.style.display === "none") {
+        fullText.style.display = "block";  // Show full content
+        previewText.style.display = "none";  // Hide preview
+        expandLink.style.display = "none";  // Hide "Show More" link
+        collapseLink.style.display = "block";  // Show "Show Less" link
+    } else {
+        fullText.style.display = "none";  // Hide full content
+        previewText.style.display = "block";  // Show preview
+        expandLink.style.display = "block";  // Show "Show More" link
+        collapseLink.style.display = "none";  // Hide "Show Less" link
+    }
+}
+</script>
 
     <script>
         function openPopup(url) {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > 768) {  // Only for PC screens
                 var width = 800;
                 var height = 600;
                 var left = (screen.width - width) / 2;
                 var top = (screen.height - height) / 2;
                 window.open(url, 'popup', 'width=' + width + ',height=' + height + ',top=' + top + ',left=' + left);
             } else {
-                window.location.href = url;
+                window.location.href = url;  // For mobile, open in the same window
             }
         }
-    </script>
+        </script>
 </head>
 <body>
     <header class="header">
         <h1>Your Name's Portfolio</h1>
         <h2>Senior Learning & Development Strategist</h2>
-        <!-- Add these links for mobile version -->
-        <div class="mobile-links">
-            <a href="#about">About Me</a> |
-            <a href="resume.pdf" target="_blank">Resume</a>
-        </div>
     </header>
 
     <div id="modal" class="modal">
@@ -731,7 +670,7 @@
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="bio" id="bio-section">
+            <div class="bio">
                 <h2>About Me</h2>
                 <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/Profile_Photo_NW_Cropped.png" alt="Your Name" class="sidebar-image">
                 <p>
