@@ -382,15 +382,15 @@
     display: none; /* Hidden by default */
     position: fixed;
     z-index: 1001; /* Above other content */
-    left: -100%; /* Start completely off-screen to the left */
+    left: 0; /* Attach to the left margin */
     top: 50%; /* Start at the middle of the screen vertically */
-    transform: translate(-50%, -50%); /* Center it both horizontally and vertically */
+    transform: translateY(-50%); /* Center it vertically relative to the viewport */
     width: 80%; /* 80% of the viewport width */
     max-width: 400px; /* Max width of 400px */
     background-color: #2C3E50; /* Same color as the header */
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Rounded corners all around */
+    border-radius: 0 10px 10px 0; /* Rounded corners on the right side */
     text-align: center;
     color: #ECF0F1;
     transition: left 0.3s ease, transform 0.3s ease; /* Smooth transition for sliding in */
@@ -398,8 +398,7 @@
 
 .about-me-modal.open {
     display: block; /* Ensure the modal is visible */
-    left: 50%; /* Slide into the center horizontally */
-    transform: translateX(-50%); /* Center horizontally */
+    left: 0; /* Keep it attached to the left margin */
 }
 
 .about-me-modal-content {
