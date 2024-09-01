@@ -270,6 +270,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    .about-me-modal {
+        display: block;
+    }
+}
+
 @keyframes fadeInScale {
     0% {
         opacity: 0;
@@ -370,6 +376,50 @@
     font-size: 1.4em;
     margin-left: 10px;
     position: relative;
+}
+
+.about-me-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1001; /* Above other content */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center the modal */
+    width: 80%; /* 80% of the viewport width */
+    max-width: 400px; /* Max width of 400px */
+    background-color: #2C3E50; /* Same color as the header */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    color: #ECF0F1;
+}
+
+.about-me-modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-image {
+    width: 50%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.modal-bio {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.about-me-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ECF0F1;
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -672,6 +722,16 @@ function toggleAboutMe(event) {
 }
 </script>
 
+<script>
+    function openAboutMeModal() {
+    document.getElementById("aboutMeModal").style.display = "block";
+    }
+
+    function closeAboutMeModal() {
+    document.getElementById("aboutMeModal").style.display = "none";
+    }
+</script>
+
     <script>
         function openPopup(url) {
             if (window.innerWidth > 768) {  // Only for PC screens
@@ -695,12 +755,21 @@ function toggleAboutMe(event) {
     <div class="mobile-nav">
         <a href="resume.pdf" class="mobile-nav-link">Resume</a>
         <a href="#about-me" class="mobile-nav-link">About Me</a>
+        <a href="#" class="mobile-nav-link" onclick="openAboutMeModal()">About Me</a>
     </div>
 
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <iframe id="modal-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <div id="aboutMeModal" class="about-me-modal">
+        <div class="about-me-modal-content">
+            <span class="about-me-close" onclick="closeAboutMeModal()">&times;</span>
+            <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/Profile_Photo_NW_Cropped.png" alt="Your Name" class="modal-image">
+            <p class="modal-bio">I’m a Senior Learning & Development Strategist with over a decade of experience. I specialize in designing impactful learning experiences, optimizing onboarding processes, and leading initiatives that drive operational efficiency.</p>
         </div>
     </div>
 
