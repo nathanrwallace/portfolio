@@ -238,6 +238,42 @@
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
 }
 
+.mobile-nav {
+    display: none; /* Hidden by default */
+    background-color: #2C3E50;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 60px; /* Adjust based on your header height */
+    width: 100%;
+    z-index: 1000;
+}
+
+.mobile-nav-link {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ECF0F1;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 10px;
+    background-color: #34495E;
+    border-radius: 25px;
+    border: 2px solid #ECF0F1;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    background-color: #E67E22;
+    border-color: #E67E22;
+}
+
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: block;
+    }
+}
+
 @keyframes fadeInScale {
     0% {
         opacity: 0;
@@ -659,6 +695,11 @@ function toggleAboutMe(event) {
         <h1>Your Name's Portfolio</h1>
         <h2>Senior Learning & Development Strategist</h2>
     </header>
+
+    <div class="mobile-nav">
+        <a href="resume.pdf" class="mobile-nav-link">Resume</a>
+        <a href="#about-me" class="mobile-nav-link">About Me</a>
+    </div>
 
     <div id="modal" class="modal">
         <div class="modal-content">
