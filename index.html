@@ -382,7 +382,7 @@
     display: none; /* Hidden by default */
     position: fixed;
     z-index: 1001; /* Above other content */
-    left: 0; /* Attach to the left margin */
+    left: -100%; /* Start completely off-screen to the left */
     top: 50%; /* Start at the middle of the screen vertically */
     transform: translateY(-50%); /* Center it vertically relative to the viewport */
     width: 80%; /* 80% of the viewport width */
@@ -393,7 +393,7 @@
     border-radius: 0 10px 10px 0; /* Rounded corners on the right side */
     text-align: center;
     color: #ECF0F1;
-    transition: left 0.3s ease, transform 0.3s ease; /* Smooth transition for sliding in */
+    transition: left 0.3s ease; /* Smooth transition for sliding in */
 }
 
 .about-me-modal.open {
