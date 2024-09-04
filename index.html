@@ -359,6 +359,10 @@
     opacity: 1;
 }
 
+.project-section.expanded:hover::after {
+    content: none; /* Remove hover content when expanded */
+}
+
 .project-section:hover {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     border-left-color: #2C3E50;
@@ -677,6 +681,7 @@
         content.style.display = "block";
     } else {
         content.style.display = "none";
+        element.closest('.project-section').classList.remove('expanded'); // Remove the 'expanded' class when closing
     }
 }
 </script>
