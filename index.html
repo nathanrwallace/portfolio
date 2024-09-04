@@ -427,6 +427,21 @@
     cursor: pointer;
 }
 
+.close-project {
+    background-color: #34495E; /* Button background color */
+    color: #ECF0F1; /* Button text color */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px; /* Space between the content and the button */
+    display: block;
+}
+
+.close-project:hover {
+    background-color: #E67E22; /* Hover effect */
+}
+
 @media (max-width: 768px) {
     /* Header styles */
     .header {
@@ -648,13 +663,22 @@
 
 <script>
     function toggleProject(element) {
-        var content = element.querySelector('.project-content');
-        if (content.style.display === "none" || content.style.display === "") {
-            content.style.display = "block";
-        } else {
-            content.style.display = "none";
-        }
+    // Check if the element clicked is the header or the close button
+    var content;
+    if (element.tagName.toLowerCase() === 'h3') {
+        // If the header is clicked, toggle its associated content
+        content = element.nextElementSibling;
+    } else if (element.tagName.toLowerCase() === 'button') {
+        // If the close button is clicked, toggle its parent content
+        content = element.parentNode;
     }
+
+    if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+    } else {
+        content.style.display = "none";
+    }
+}
 </script>
 
 <script>
@@ -745,7 +769,21 @@ function closeAboutMeModal() {
 }
 </script>
 
-    <script>
+<script>
+function openResume() {
+    const resumeURL = "https://drive.google.com/file/d/1zVCiLt7YByOvQZUrzNK6PxfKeP8hxeSs/view?usp=drive_link";
+    
+    if (isMobile()) {
+        // On mobile, open the resume in the same tab
+        window.location.href = resumeURL;
+    } else {
+        // On desktop, open in a new tab
+        window.open(resumeURL, '_blank');
+    }
+}
+</script>
+
+<script>
         function openPopup(url) {
             if (window.innerWidth > 768) {  // Only for PC screens
                 var width = 800;
@@ -766,7 +804,7 @@ function closeAboutMeModal() {
     </header>
 
     <div class="mobile-nav">
-        <a href="resume.pdf" class="mobile-nav-link">Resume</a>
+        <a href="javascript:void(0);" class="mobile-nav-link" onclick="openResume()">Resume</a>
         <a href="#" class="mobile-nav-link" onclick="openAboutMeModal()">About Me</a>
     </div>
 
@@ -794,7 +832,8 @@ function closeAboutMeModal() {
                 <p>
                     I’m a Senior Learning & Development Strategist with over a decade of experience. I specialize in designing impactful learning experiences, optimizing onboarding processes, and leading initiatives that drive operational efficiency.
                 </p>
-                <a href="resume.pdf" target="_blank" class="resume-link">View Resume</a>
+                <a href="https://drive.google.com/file/d/1zVCiLt7YByOvQZUrzNK6PxfKeP8hxeSs/view?usp=sharing
+                " target="_blank" class="resume-link">View Resume</a>
             </div>
         </aside>
 
@@ -831,9 +870,32 @@ function closeAboutMeModal() {
                 </div>
             </div>
             
+            <!-- Work Project 1 -->
             <div class="project-section">
-                <h3>Project: WHMIS Training Program</h3>
+                <h3 onclick="toggleProject(this)">Project: WHMIS Training for Office Workers
+                    <span class="expand-icon">+</span>
+                </h3>
+                <div class="project-content" style="display: none;">
+                    <!-- Project details here -->
+                    <p><strong>Objective:</strong> Achieve compliance with WHMIS regulations, educate office staff on safe chemical handling, and mitigate company liability.</p>
+                    <p><strong>Approach:</strong></p>
+                    <ul>
+                        <li><strong>Needs Assessment & Planning:</strong> Conducted an analysis of compliance requirements and developed a training plan, which was approved by the stakeholder.</li>
+                        <li><strong>Interactive Design:</strong> Created a 30-minute eLearning module with scenarios, quizzes, and drag-and-drop exercises, enhanced with attractive graphics and animations to keep learners engaged.</li>
+                        <li><strong>AI Voice Integration:</strong> Used AI voice technology for extensive narration, ensuring it was natural-sounding and engaging to maintain learner interest throughout the course.</li>
+                    </ul>
+                    <p><strong>Tools:</strong> Articulate Storyline 360, AI Voice Technology, Microsoft PowerPoint, Adobe Illustrator.</p>
+                    <p><strong>Impact:</strong></p>
+                    <ul>
+                        <li><strong>Compliance:</strong> Full compliance achieved within 60 days, half the time initially requested by the stakeholder.</li>
+                        <li><strong>Employee Feedback:</strong> Positive feedback highlighted the engaging narration, visual appeal, and interactive elements. Some noted the course length, a compliance necessity that was communicated upfront.</li>
+                    </ul>
+                    <p><strong>Role:</strong> Led needs assessment, collaborated with stakeholders to ensure regulatory compliance, designed and developed the interactive eLearning module, integrated AI voice for extensive narration, and standardized safety postings across office locations.</p>
+                    <p><strong>Timeline:</strong> 4 weeks from project intake to course completion; 60 days to full compliance.</p>
+                    <button class="close-project" onclick="toggleProject(this)">Close</button>
+                </div>
             </div>
+
             <!-- eLearning Sample 2 -->
             <div class="elearning-item">
                 <div class="iframe-container">
@@ -843,36 +905,35 @@ function closeAboutMeModal() {
                     <iframe src="https://nathanrwallace.github.io/Data-Governance-Principles/" allowfullscreen></iframe>
                 </div>
             </div>
+
+
             <!-- Work Project 2 -->
-            <div class="project-section" onclick="toggleProject(this)">
-                <h3>Project: Data Governance Training & Recognition Program
+            <div class="project-section">
+                <h3 onclick="toggleProject(this)">Project: Data Governance Training & Recognition Program
                     <span class="expand-icon">+</span>
                 </h3>
                 <div class="project-content" style="display: none;">
+                    <!-- Project details here -->
                     <p><strong>Objective:</strong> Educate HR employees on data governance principles, align them with IT policies, and engage them through an ongoing recognition program.</p>
-                    
                     <p><strong>Approach:</strong></p>
                     <ul>
                         <li><strong>eLearning Module:</strong> Developed interactive scenarios and real-life applications to make data governance engaging and practical.</li>
                         <li><strong>Recognition Program:</strong> Built an automated system that recognized adherence to data governance practices, integrating with existing tools like Microsoft Forms and Power Automate.</li>
                     </ul>
-            
                     <p><strong>Tools:</strong> Storyline 360, Microsoft Forms, Power Automate, Power BI, Adobe Illustrator.</p>
-            
                     <p><strong>Impact:</strong></p>
                     <ul>
                         <li><strong>Employee Engagement:</strong> Over 1,000 recognitions logged, with monthly celebrations in HR meetings that have shifted the culture toward proactive data governance.</li>
                         <li><strong>Efficiency Gains:</strong> A 50% reduction in time spent on data corrections, thanks to better practices and process improvements.</li>
                         <li><strong>Cost Savings:</strong> Saved $30k by using in-house tools instead of purchasing an external recognition platform.</li>
                     </ul>
-            
                     <p><strong>Role:</strong> Led needs assessment, designed the recognition program, developed the eLearning course, and created interactive, scenario-based learning experiences.</p>
-            
                     <p><strong>Timeline:</strong></p>
                     <ul>
                         <li><strong>6 Weeks:</strong> eLearning course development, from scripting to final reviews.</li>
                         <li><strong>1 Month:</strong> Recognition program design and implementation using Microsoft 360 tools.</li>
                     </ul>
+                    <button class="close-project" onclick="toggleProject(this)">Close</button>
                 </div>
             </div>
             <!-- eLearning Sample 3 -->
@@ -886,9 +947,36 @@ function closeAboutMeModal() {
             </div>
             <!-- Work Project 3 -->
             <div class="project-section">
-                <h3>Project: Decision Making and Leadership Program</h3>
-                <div class="project-content">
-                    <p>This project centered around the creation of a leadership training program focused on decision-making...</p>
+                <h3 onclick="toggleProject(this)">Project: Leadership Training Program for QSR Managers and Supervisors
+                    <span class="expand-icon">+</span>
+                </h3>
+                <div class="project-content" style="display: none;">
+                    <!-- Project details here -->
+                    <p><strong>Objective:</strong> Transform store managers into strategic business operators, empower supervisors to manage daily operations, and improve operational efficiency, customer satisfaction, and employee retention.</p>
+                    <p><strong>Approach:</strong></p>
+                    <ul>
+                        <li><strong>Content Development:</strong> Developed and released management and leadership content over 5 months, targeted at managers with supplementary material for supervisors to ensure alignment and support change management.</li>
+                        <li><strong>Facilitation & Support:</strong> Conducted regular meetings and on-site visits with managers and supervisors to ensure understanding and application of the materials, adjusting as needed based on feedback and challenges.</li>
+                        <li><strong>Tools & Resources:</strong> Created eLearning modules, Quick Reference Guides, and process maps. Optimized existing tools and physical store layouts for better efficiency. The final month focused on integrating all elements, conducting peer site visits, and creating location-specific strategies.</li>
+                    </ul>
+                    <p><strong>Tools:</strong> Articulate Storyline, PowerPoint, Adobe Illustrator, process mapping, change management strategies, Microsoft Word, Teams, Outlook.</p>
+                    <p><strong>Impact:</strong></p>
+                    <ul>
+                        <li><strong>Time Reallocation:</strong> Managers gained an average of 15 hours per week for strategic tasks, focusing on areas like inventory control and schedule optimization.</li>
+                        <li><strong>Performance Boost:</strong> One location increased revenue by over 20% year-over-year through focused efforts on sales forecasting, schedule optimization, and inventory control. Across the program, customer satisfaction rose by 15%, revenues by 10%, and employee retention by 30%.</li>
+                        <li><strong>Data-Driven Success:</strong> Managers learned to analyze dashboard metrics, profit and loss statements, and sales-by-department reports, enabling them to pinpoint which strategies were most effective.</li>
+                        <li><strong>Material Iteration:</strong> Based on learner feedback, materials were revised to be clearer and more concise, some delivery was automated, and locations were grouped by type (e.g., drive-thru vs. non-drive-thru) for future training cohorts.</li>
+                    </ul>
+                    <p><strong>Role:</strong> Assessed store performance, identified key training topics, set goals, developed content and resources, facilitated training, conducted site visits, provided stakeholder updates, iterated materials for future use, and trained a long-term facilitator. Managed stakeholder expectations by sharing insights on learner mindset, common challenges, adjustments made, observed behavioral changes, and incremental improvements.</p>
+                    <p><strong>Timeline:</strong></p>
+                    <ul>
+                        <li><strong>Preparation (2 months):</strong> 1 month of assessment and 1 month of program development.</li>
+                        <li><strong>Implementation (5 months):</strong> Content delivery, follow-ups, site visits, and demonstrations.</li>
+                        <li><strong>Finalization (1 month):</strong> Integration, peer site visits, and strategy development.</li>
+                        <li><strong>Post-Implementation (3 months):</strong> Success assessment, feedback, metric tracking, and facilitator training.</li>
+                        <li><strong>Total Involvement:</strong> Just under 1 year from start to turnover.</li>
+                    </ul>
+                    <button class="close-project" onclick="toggleProject(this)">Close</button>
                 </div>
             </div>
         </div>
