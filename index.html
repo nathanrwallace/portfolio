@@ -361,6 +361,7 @@
 
 .project-section.expanded:hover::after {
     content: none; /* Remove hover content when expanded */
+    opacity: 0;
 }
 
 .project-section:hover {
@@ -679,6 +680,7 @@
 
     if (content.style.display === "none" || content.style.display === "") {
         content.style.display = "block";
+        element.closest('.project-section').classList.add('expanded');
     } else {
         content.style.display = "none";
         element.closest('.project-section').classList.remove('expanded'); // Remove the 'expanded' class when closing
