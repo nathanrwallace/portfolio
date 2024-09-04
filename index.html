@@ -770,6 +770,9 @@ function closeAboutMeModal() {
 </script>
 
 <script>
+function isMobile() {
+    return window.innerWidth <= 768;  // Standard mobile screen width breakpoint
+}
 function openResume() {
     const resumeURL = "https://drive.google.com/file/d/1zVCiLt7YByOvQZUrzNK6PxfKeP8hxeSs/view?usp=drive_link";
     
