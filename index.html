@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
     <title>Nathan Wallace's Portfolio</title>
     <style>
         :root {
@@ -277,6 +278,20 @@
     html, body {
         background-color: white !important;
         color: black !important;
+    }
+
+    .header, .sidebar, .main-content, footer {
+        background-color: white !important; /* Ensure all key areas stay in light mode */
+        color: black !important;
+    }
+
+    a {
+        color: #3498db !important; /* Light mode link color */
+    }
+
+    .sidebar, .header {
+        background-color: #2C3E50 !important; /* Keep dark header/sidebar */
+        color: #ECF0F1 !important;
     }
 }
 
@@ -721,6 +736,12 @@
     window.onresize = loadWHMISELearningSample;
 </script>
 
+<script>if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.style.backgroundColor = "white";
+    document.documentElement.style.color = "black";
+    }
+</script>
+
 <script>
 function openModal(url) {
     var modal = document.getElementById("modal");
@@ -817,8 +838,8 @@ function openResume() {
         }
         </script>
 </head>
-<body>
-    <header class="header">
+<body style="background-color: white; color: black;">
+    <header class="header" style="background-color: #2C3E50; color: #ECF0F1;">
         <h1>Nathan Wallace</h1>
         <h2>Senior Learning & Development Strategist</h2>
     </header>
@@ -845,7 +866,7 @@ function openResume() {
 
     <div class="container">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" style="background-color: #2C3E50; color: #ECF0F1;">
             <div class="bio">
                 <h2>About Me</h2>
                 <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/Profile_Photo_NW_Cropped.png" alt="Your Name" class="sidebar-image">
