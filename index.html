@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nathan Wallace's Portfolio</title>
     <style>
+        :root {
+            color-scheme: light;
+            --bg-color: #E5E8E8;
+            --text-color: #333;
+            
+        }
         /* General Body Styles */
         body {
             font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
-            background-color: #E5E8E8;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             margin: 0;
             padding: 0;
             min-height: 100vh; /* Ensures body takes full viewport height */
@@ -263,6 +269,12 @@
     text-decoration: underline; /* Underline on hover to indicate it's a link */
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #333;
+        --text-color: #E5E8E8;
+    }
+}
 
 @media (max-width: 768px) {
     .mobile-nav {
