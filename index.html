@@ -11,8 +11,8 @@
         /* General Body Styles */
         body {
             font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color:white;
+            color: black
             margin: 0;
             padding: 0;
             min-height: 100vh; /* Ensures body takes full viewport height */
@@ -270,6 +270,13 @@
 @media (max-width: 768px) {
     .mobile-nav {
         display: block;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    html, body {
+        background-color: white;
+        color: black;
     }
 }
 
