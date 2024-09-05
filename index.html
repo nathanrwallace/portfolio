@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light only">
-    <meta name="theme-color" content="#ffffff">
     <title>Nathan Wallace's Portfolio</title>
     <style>
         :root {
@@ -13,7 +11,7 @@
         /* General Body Styles */
         body {
             font-family: 'Lato', 'Helvetica Neue', 'Segoe UI', sans-serif;
-            background-color:white;
+            background-color: white;
             color: black;
             margin: 0;
             padding: 0;
@@ -272,22 +270,6 @@
 @media (max-width: 768px) {
     .mobile-nav {
         display: block;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    * {
-        background-color: white !important;
-        color: black !important;
-    }
-
-    body, html, .header, .sidebar, .main-content, footer {
-        background-color: white !important; /* Override all possible backgrounds */
-        color: black !important;            /* Override text color */
-    }
-
-    a {
-        color: #3498db !important; /* Ensure links also have light mode colors */
     }
 }
 
@@ -732,26 +714,6 @@
     window.onresize = loadWHMISELearningSample;
 </script>
 
-<script>window.onload = function() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.style.backgroundColor = "white";
-        document.documentElement.style.color = "black";
-
-        // Apply to key areas
-        document.querySelectorAll('header, .sidebar, .main-content, footer').forEach(function(el) {
-            el.style.backgroundColor = 'white';
-            el.style.color = 'black';
-        });
-    }
-};
-</script>
-
-<script>if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.style.backgroundColor = "white";
-    document.documentElement.style.color = "black";
-    }
-</script>
-
 <script>
 function openModal(url) {
     var modal = document.getElementById("modal");
@@ -848,8 +810,8 @@ function openResume() {
         }
         </script>
 </head>
-<body style="background-color: white; color: black;">
-    <header class="header" style="background-color: #2C3E50; color: #ECF0F1;">
+<body>
+    <header class="header">
         <h1>Nathan Wallace</h1>
         <h2>Senior Learning & Development Strategist</h2>
     </header>
@@ -876,7 +838,7 @@ function openResume() {
 
     <div class="container">
         <!-- Sidebar -->
-        <aside class="sidebar" style="background-color: #2C3E50; color: #ECF0F1;">
+        <aside class="sidebar">
             <div class="bio">
                 <h2>About Me</h2>
                 <img src="https://raw.githubusercontent.com/nathanrwallace/nathanrwallace.github.io/main/Profile_Photo_NW_Cropped.png" alt="Your Name" class="sidebar-image">
