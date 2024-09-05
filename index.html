@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light only">
+    <meta name="theme-color" content="#ffffff">
     <title>Nathan Wallace's Portfolio</title>
     <style>
         :root {
@@ -275,23 +276,18 @@
 }
 
 @media (prefers-color-scheme: dark) {
-    html, body {
+    * {
         background-color: white !important;
         color: black !important;
     }
 
-    .header, .sidebar, .main-content, footer {
-        background-color: white !important; /* Ensure all key areas stay in light mode */
-        color: black !important;
+    body, html, .header, .sidebar, .main-content, footer {
+        background-color: white !important; /* Override all possible backgrounds */
+        color: black !important;            /* Override text color */
     }
 
     a {
-        color: #3498db !important; /* Light mode link color */
-    }
-
-    .sidebar, .header {
-        background-color: #2C3E50 !important; /* Keep dark header/sidebar */
-        color: #ECF0F1 !important;
+        color: #3498db !important; /* Ensure links also have light mode colors */
     }
 }
 
@@ -734,6 +730,20 @@
     // Load the correct version on page load and resize
     window.onload = loadWHMISELearningSample;
     window.onresize = loadWHMISELearningSample;
+</script>
+
+<script>window.onload = function() {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.style.backgroundColor = "white";
+        document.documentElement.style.color = "black";
+
+        // Apply to key areas
+        document.querySelectorAll('header, .sidebar, .main-content, footer').forEach(function(el) {
+            el.style.backgroundColor = 'white';
+            el.style.color = 'black';
+        });
+    }
+};
 </script>
 
 <script>if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
